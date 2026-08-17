@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Components. One block per component, BEM-ish naming.
+   Stage 3 refines the visual language; these are functional defaults.
+   ========================================================================== */
+
+/* --- Button --------------------------------------------------------------- */
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--td-sp-2);
+	padding: var(--td-sp-3) var(--td-sp-5);
+	border-radius: var(--td-radius);
+	font-weight: var(--td-fw-medium);
+	line-height: 1.2;
+	text-decoration: none;
+	border: 1px solid transparent;
+	transition: background-color var(--td-dur) var(--td-ease),
+	            color var(--td-dur) var(--td-ease),
+	            border-color var(--td-dur) var(--td-ease);
+	/* Meets the 44px minimum touch target from WCAG 2.5.5. */
+	min-height: 44px;
+}
+
+.button--primary {
+	background: var(--td-accent);
+	color: var(--td-n-0);
+}
+
+.button--primary:hover {
+	background: var(--td-accent-strong);
+	color: var(--td-n-0);
+}
+
+.button--ghost {
+	border-color: currentColor;
+	color: var(--td-text);
+}
+
+.button--ghost:hover {
+	background: var(--td-bg-subtle);
+	color: var(--td-text);
+}
+
+/* --- Hero ----------------------------------------------------------------- */
+
+.hero {
+	padding-block: var(--td-sp-9);
+	background: var(--td-bg-subtle);
+}
+
+.hero__inner {
+	display: grid;
+	gap: var(--td-sp-5);
+	max-width: 46rem;
+}
+
+.hero__lede {
+	font-size: var(--td-fs-lg);
+	color: var(--td-text-muted);
+}
+
+.hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--td-sp-3);
+}
+
+/* --- Search form ---------------------------------------------------------- */
+
+.search-form {
+	display: flex;
+	gap: var(--td-sp-2);
+	max-width: 28rem;
+}
+
+.search-form__field {
+	flex: 1;
+	padding: var(--td-sp-3);
+	border: 1px solid var(--td-border);
+	border-radius: var(--td-radius);
+	background: var(--td-bg);
+}
+
+.search-form__submit {
+	background: var(--td-brand);
+	color: var(--td-n-0);
+}
+
+/* --- Pagination ----------------------------------------------------------- */
+
+.pagination .nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--td-sp-2);
+	padding-block: var(--td-sp-6);
+}
+
+.pagination .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 44px;
+	min-height: 44px;
+	padding-inline: var(--td-sp-2);
+	border: 1px solid var(--td-border);
+	border-radius: var(--td-radius);
+	text-decoration: none;
+	color: var(--td-text);
+}
+
+.pagination .page-numbers.current {
+	background: var(--td-brand);
+	color: var(--td-n-0);
+	border-color: var(--td-brand);
+}
+
+/* --- Widgets -------------------------------------------------------------- */
+
+.widget__title {
+	font-size: var(--td-fs-lg);
+	margin-bottom: var(--td-sp-3);
+}
+
+/* --- WordPress core classes ----------------------------------------------
+   Core emits these on editor content regardless of theme. If they are not
+   styled, aligned and captioned images look broken. */
+
+.alignleft {
+	float: left;
+	margin: 0 var(--td-sp-5) var(--td-sp-4) 0;
+}
+
+.alignright {
+	float: right;
+	margin: 0 0 var(--td-sp-4) var(--td-sp-5);
+}
+
+.aligncenter {
+	margin-inline: auto;
+}
+
+.alignwide,
+.alignfull {
+	max-width: none;
+}
+
+.wp-caption-text,
+.wp-element-caption {
+	font-size: var(--td-fs-sm);
+	color: var(--td-text-muted);
+	margin-top: var(--td-sp-2);
+}
+
+.sticky,
+.gallery-caption,
+.bypostauthor {
+	/* Present so the WordPress theme check does not flag them; no styling
+	   needed yet. */
+}

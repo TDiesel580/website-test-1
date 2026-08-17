@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Layout primitives. Structure only — no colour, no type.
+   ========================================================================== */
+
+/* The one container. Everything that needs a max width uses .wrap rather than
+   inventing its own. */
+.wrap {
+	width: 100%;
+	max-width: var(--td-wrap-max);
+	margin-inline: auto;
+	padding-inline: var(--td-wrap-gutter);
+}
+
+/* Full-bleed sections get vertical rhythm from here, not from margins on
+   their children. */
+.section {
+	padding-block: var(--td-sp-8);
+}
+
+/* --- Header --------------------------------------------------------------- */
+
+.site-header {
+	border-bottom: 1px solid var(--td-border);
+	background: var(--td-bg);
+	position: sticky;
+	top: 0;
+	z-index: var(--td-z-sticky);
+}
+
+.site-header__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--td-sp-4);
+	min-height: var(--td-header-h);
+}
+
+.site-branding {
+	font-size: var(--td-fs-lg);
+	margin: 0;
+}
+
+.site-branding__text {
+	color: var(--td-text);
+	text-decoration: none;
+	font-weight: var(--td-fw-bold);
+}
+
+/* --- Navigation ----------------------------------------------------------- */
+
+.nav__list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--td-sp-5);
+}
+
+.nav--primary a {
+	color: var(--td-text);
+	text-decoration: none;
+	font-weight: var(--td-fw-medium);
+}
+
+.nav--primary a:hover,
+.nav--primary .current-menu-item > a {
+	color: var(--td-link);
+}
+
+/* The toggle only exists below the nav breakpoint. Stage 7 tunes the value;
+   the mechanism is already correct. */
+.nav-toggle {
+	display: none;
+}
+
+@media (max-width: 47.99em) {
+	.nav-toggle {
+		display: block;
+		padding: var(--td-sp-2);
+	}
+
+	.nav-toggle__bars,
+	.nav-toggle__bars::before,
+	.nav-toggle__bars::after {
+		display: block;
+		width: 24px;
+		height: 2px;
+		background: currentColor;
+		transition: transform var(--td-dur) var(--td-ease);
+	}
+
+	.nav-toggle__bars::before,
+	.nav-toggle__bars::after {
+		content: "";
+		position: relative;
+	}
+
+	.nav-toggle__bars::before { top: -7px; }
+	.nav-toggle__bars::after  { top: 5px; }
+
+	/* Hidden by attribute, not by class — the same attribute the button's
+	   aria-expanded mirrors, so state can never desync from appearance. */
+	.site-header__nav[hidden] {
+		display: none;
+	}
+
+	.site-header__nav {
+		position: absolute;
+		inset-inline: 0;
+		top: 100%;
+		z-index: var(--td-z-nav);
+		background: var(--td-bg);
+		border-bottom: 1px solid var(--td-border);
+		padding: var(--td-sp-4) var(--td-wrap-gutter);
+	}
+
+	.nav__list {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--td-sp-4);
+	}
+}
+
+/* --- Footer --------------------------------------------------------------- */
+
+.site-footer {
+	margin-top: var(--td-sp-9);
+	padding-block: var(--td-sp-7);
+	background: var(--td-bg-inverse);
+	color: var(--td-text-inverse);
+}
+
+.site-footer a {
+	color: var(--td-text-inverse);
+}
+
+.site-footer__inner {
+	display: grid;
+	gap: var(--td-sp-5);
+}
+
+.site-footer__copyright {
+	font-size: var(--td-fs-sm);
+	color: var(--td-n-300);
+}
+
+/* --- Content flow --------------------------------------------------------- */
+
+.entry {
+	padding-block: var(--td-sp-6);
+}
+
+/* Vertical rhythm via the owl selector: space between siblings, never before
+   the first or after the last. */
+.entry__content > * + * {
+	margin-top: var(--td-sp-4);
+}
+
+.entry__header {
+	margin-bottom: var(--td-sp-5);
+}

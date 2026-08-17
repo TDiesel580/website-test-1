@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Base element styling. No classes here — element selectors only.
+   ========================================================================== */
+
+body {
+	background: var(--td-bg);
+	color: var(--td-text);
+	font-family: var(--td-font-body);
+	font-size: var(--td-fs-base);
+	line-height: var(--td-lh-base);
+	display: flex;
+	flex-direction: column;
+}
+
+/* Push the footer to the bottom on short pages without a wrapper element. */
+.site-main {
+	flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--td-font-display);
+	font-weight: var(--td-fw-bold);
+	line-height: var(--td-lh-tight);
+	text-wrap: balance; /* Stops one-word orphan lines in headings. */
+}
+
+h1 { font-size: var(--td-fs-3xl); }
+h2 { font-size: var(--td-fs-2xl); }
+h3 { font-size: var(--td-fs-xl); }
+h4 { font-size: var(--td-fs-lg); }
+
+p {
+	text-wrap: pretty;
+}
+
+a {
+	color: var(--td-link);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.15em;
+}
+
+a:hover {
+	color: var(--td-link-hover);
+}
+
+/* One consistent focus ring everywhere, visible against both light and dark
+   backgrounds. :focus-visible means it appears for keyboard users without
+   ringing every mouse click. */
+:focus-visible {
+	outline: 3px solid var(--td-focus);
+	outline-offset: 2px;
+	border-radius: var(--td-radius-sm);
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--td-border);
+	margin-block: var(--td-sp-6);
+}
+
+blockquote {
+	border-left: 3px solid var(--td-accent);
+	padding-left: var(--td-sp-4);
+	color: var(--td-text-muted);
+}
+
+code, pre {
+	font-family: var(--td-font-mono);
+	font-size: 0.9em;
+}
+
+/* --- Accessibility utilities ---------------------------------------------
+   WordPress core markup and this theme both rely on .screen-reader-text
+   existing. Do not remove it. */
+
+.screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* The skip link becomes visible when focused — the one exception to the
+   rule above. */
+.skip-link:focus-visible {
+	position: fixed !important;
+	top: var(--td-sp-2);
+	left: var(--td-sp-2);
+	z-index: var(--td-z-overlay);
+	width: auto;
+	height: auto;
+	clip-path: none;
+	padding: var(--td-sp-3) var(--td-sp-4);
+	background: var(--td-bg);
+	color: var(--td-text);
+	box-shadow: var(--td-shadow);
+	border-radius: var(--td-radius);
+}
+
+/* Removing the focus outline from <main> — it is focused programmatically by
+   the skip link, and a ring around the whole page reads as a rendering bug. */
+.site-main:focus {
+	outline: none;
+}

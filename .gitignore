@@ -1,0 +1,61 @@
+# =============================================================================
+# True Diesel — repository root is the web root (/var/www/truediesel-dev).
+#
+# Strategy: ignore EVERYTHING, then re-admit only what we author. This is the
+# opposite of the usual approach and it is deliberate — WordPress core adds
+# and renames files on every update, and a blocklist would silently start
+# tracking them. A whitelist can only ever track what is listed below.
+#
+# The `!dir/` + `!dir/**` pairing is required: Git will not descend into an
+# ignored directory, so the directory itself must be un-ignored before its
+# contents can be.
+# =============================================================================
+
+# 1. Ignore everything.
+/*
+
+# 2. Re-admit the path down to our theme.
+!/wp-content/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/truediesel/
+!/wp-content/themes/truediesel/**
+
+# 3. Re-admit must-use plugins, if any are ever added.
+!/wp-content/mu-plugins/
+!/wp-content/mu-plugins/**
+
+# 4. Re-admit repo-level files.
+!/.gitignore
+!/.editorconfig
+!/README.md
+!/docs/
+!/docs/**
+
+# =============================================================================
+# Belt-and-braces. Everything below is already covered by the `/*` rule above,
+# but is listed explicitly so the intent survives future edits to this file.
+# =============================================================================
+
+# NEVER commit: contains database credentials and salts.
+wp-config.php
+wp-config-local.php
+
+# Uploads are content, not code. They belong in backups, not in Git.
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/cache/
+
+# Editor and OS noise.
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs and dumps.
+*.log
+*.sql
+*.sql.gz

@@ -1,0 +1,19 @@
+/*
+Theme Name: True Diesel
+Theme URI: https://example.invalid/
+Author: True Diesel Ltd.
+Description: Custom classic theme for True Diesel Ltd. — heavy-duty truck and trailer repair and diagnostics. No-build: all CSS and JS are hand-authored and enqueued from assets/.
+Version: 0.1.0
+Requires at least: 6.5
+Tested up to: 6.8
+Requires PHP: 8.1
+License: Proprietary — all rights reserved
+Text Domain: truediesel
+Tags: custom
+*/
+
+/*
+ * This file exists because WordPress requires it to recognise the theme.
+ * It is intentionally metadata-only and is NOT enqueued.
+ * Real styles live in assets/css/ and are enqueued from inc/enqueue.php.
+ */

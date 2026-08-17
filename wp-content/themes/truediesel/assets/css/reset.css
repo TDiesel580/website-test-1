@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Reset / normalise.
+   Opinionated and small. Only rules that earn their place.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Kill the default margins that make vertical rhythm unpredictable. Spacing
+   is applied deliberately in base.css instead. */
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd {
+	margin: 0;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	min-height: 100vh;
+	min-height: 100svh; /* Accounts for mobile browser chrome. */
+	text-rendering: optimizeSpeed;
+}
+
+/* Images behave like blocks and never overflow their container. This one rule
+   prevents most horizontal-scroll bugs on phones. */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Form controls do not inherit typography by default. Make them. */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+	background: none;
+	border: 0;
+	padding: 0;
+}
+
+/* Long words (part numbers, URLs) wrap instead of blowing out the layout. */
+p, li, h1, h2, h3, h4 {
+	overflow-wrap: break-word;
+}
+
+ul[class],
+ol[class] {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+/* Anything that opts out of animation gets it honoured everywhere at once,
+   including the smooth scroll above. Required for Stage 9. */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Design tokens — STAGE 3 FILLS THESE IN.
+
+   Every value below is a PLACEHOLDER. Stage 3 derives the real palette from
+   the True Diesel logo (D4) and replaces them here. Nothing else in the
+   codebase should ever contain a raw colour, font stack, or spacing number —
+   if you find yourself typing `#` outside this file, add a token instead.
+   ========================================================================== */
+
+:root {
+	/* --- Brand ----------------------------------------------------------
+	   PLACEHOLDER VALUES. Replace with the real brand colours sampled from
+	   the logo at Stage 3. */
+	--td-brand:           #1f2a37;
+	--td-brand-strong:    #111827;
+	--td-accent:          #d64500;
+	--td-accent-strong:   #a83600;
+
+	/* --- Neutrals -------------------------------------------------------
+	   A 10-step ramp. Stage 3 may retune the mid steps, but the endpoints
+	   (0 and 900) should stay near-white and near-black for contrast. */
+	--td-n-0:   #ffffff;
+	--td-n-50:  #f7f8f9;
+	--td-n-100: #eceef1;
+	--td-n-200: #d8dce1;
+	--td-n-300: #b6bcc5;
+	--td-n-400: #8b939f;
+	--td-n-500: #666e7a;
+	--td-n-600: #4a515b;
+	--td-n-700: #343a42;
+	--td-n-800: #21262c;
+	--td-n-900: #12161a;
+
+	/* --- Semantic ------------------------------------------------------
+	   Components reference THESE, not the raw ramp above. That indirection
+	   is what makes a dark mode or a rebrand a one-file change. */
+	--td-bg:            var(--td-n-0);
+	--td-bg-subtle:     var(--td-n-50);
+	--td-bg-inverse:    var(--td-n-900);
+	--td-text:          var(--td-n-800);
+	--td-text-muted:    var(--td-n-500);
+	--td-text-inverse:  var(--td-n-0);
+	--td-border:        var(--td-n-200);
+	--td-link:          var(--td-accent-strong);
+	--td-link-hover:    var(--td-accent);
+	--td-focus:         var(--td-accent);
+
+	/* --- Type ----------------------------------------------------------
+	   PLACEHOLDER STACKS. Stage 3 picks the real typefaces; until then these
+	   resolve to the OS UI font so nothing looks accidentally "designed". */
+	--td-font-body:    system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+	--td-font-display: var(--td-font-body);
+	--td-font-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+	/* Fluid type scale. clamp() means no breakpoint-by-breakpoint font-size
+	   overrides at Stage 7 — sizes interpolate with the viewport. */
+	--td-fs-xs:   0.8125rem;
+	--td-fs-sm:   0.9375rem;
+	--td-fs-base: 1rem;
+	--td-fs-lg:   clamp(1.125rem, 0.35vw + 1.05rem, 1.25rem);
+	--td-fs-xl:   clamp(1.375rem, 0.8vw + 1.2rem, 1.75rem);
+	--td-fs-2xl:  clamp(1.75rem, 1.6vw + 1.4rem, 2.5rem);
+	--td-fs-3xl:  clamp(2.25rem, 3vw + 1.5rem, 3.75rem);
+
+	--td-lh-tight: 1.15;
+	--td-lh-base:  1.6;
+
+	--td-fw-normal: 400;
+	--td-fw-medium: 500;
+	--td-fw-bold:   700;
+
+	/* --- Space ---------------------------------------------------------
+	   A single geometric-ish scale. Use these, not arbitrary rem values. */
+	--td-sp-1:  0.25rem;
+	--td-sp-2:  0.5rem;
+	--td-sp-3:  0.75rem;
+	--td-sp-4:  1rem;
+	--td-sp-5:  1.5rem;
+	--td-sp-6:  2rem;
+	--td-sp-7:  3rem;
+	--td-sp-8:  4rem;
+	--td-sp-9:  6rem;
+
+	/* --- Layout --------------------------------------------------------- */
+	--td-wrap-max:   1200px;
+	--td-wrap-gutter: var(--td-sp-5);
+	--td-header-h:   72px;
+
+	/* --- Shape and depth ------------------------------------------------ */
+	--td-radius-sm: 2px;
+	--td-radius:    4px;
+	--td-radius-lg: 10px;
+
+	--td-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+	--td-shadow:    0 2px 8px rgb(0 0 0 / 0.10);
+	--td-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.14);
+
+	/* --- Motion ---------------------------------------------------------
+	   Durations live here so the reduced-motion rule in reset.css can zero
+	   them all out in one place. */
+	--td-dur-fast: 120ms;
+	--td-dur:      220ms;
+	--td-dur-slow: 400ms;
+	--td-ease:     cubic-bezier(0.2, 0, 0, 1);
+
+	/* --- Z-index ---------------------------------------------------------
+	   Named layers. Prevents the z-index: 9999 arms race later. */
+	--td-z-base:    0;
+	--td-z-raised:  10;
+	--td-z-sticky:  100;
+	--td-z-nav:     200;
+	--td-z-overlay: 300;
+}

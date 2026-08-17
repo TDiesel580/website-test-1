@@ -1,0 +1,22 @@
+# Keeps whitespace consistent between VS Code on Windows and anything editing
+# files directly on the Ubuntu box. WordPress coding standards use real tabs
+# for PHP/JS/CSS; YAML and Markdown are the exceptions.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+indent_size = 4
+
+[*.{yml,yaml,json}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
