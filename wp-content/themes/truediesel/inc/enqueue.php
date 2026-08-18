@@ -110,14 +110,14 @@ add_action( 'wp_enqueue_scripts', 'td_enqueue_assets' );
  * flashing.
  */
 function td_preload_assets() {
-	$font = ''; // e.g. 'assets/fonts/your-font.woff2' once Stage 3 decides.
+	$font = 'assets/fonts/barlow-condensed/BarlowCondensed-SemiBold.ttf';
 
 	if ( ! $font || ! file_exists( TD_DIR . '/' . $font ) ) {
 		return;
 	}
 
 	printf(
-		'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+		'<link rel="preload" href="%s" as="font" type="font/ttf" crossorigin>' . "\n",
 		esc_url( TD_URI . '/' . $font )
 	);
 }

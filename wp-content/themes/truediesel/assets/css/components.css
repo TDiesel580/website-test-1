@@ -24,13 +24,13 @@
 }
 
 .button--primary {
-	background: var(--td-accent);
-	color: var(--td-n-0);
+        background: var(--td-cta-bg);
+        color: var(--td-cta-text);
 }
 
 .button--primary:hover {
-	background: var(--td-accent-strong);
-	color: var(--td-n-0);
+        background: var(--td-cta-bg-hover);
+        color: var(--td-cta-text);
 }
 
 .button--ghost {

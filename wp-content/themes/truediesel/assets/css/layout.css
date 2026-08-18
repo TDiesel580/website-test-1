@@ -16,7 +16,31 @@
 .section {
 	padding-block: var(--td-sp-8);
 }
+/* --- Surface utilities --------------------------------------------------- */
 
+.surface--default {
+        background: var(--td-bg);
+        color: var(--td-text);
+}
+
+.surface--subtle {
+        background: var(--td-bg-subtle);
+        color: var(--td-text);
+}
+
+.surface--muted {
+        background: var(--td-bg-muted);
+        color: var(--td-text);
+}
+
+.surface--inverse {
+        background: var(--td-bg-inverse);
+        color: var(--td-text-inverse);
+}
+
+.surface--inverse a {
+        color: var(--td-text-inverse);
+}
 /* --- Header --------------------------------------------------------------- */
 
 .site-header {

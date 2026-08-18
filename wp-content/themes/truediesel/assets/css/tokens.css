@@ -1,113 +1,158 @@
 /* ==========================================================================
-   Design tokens — STAGE 3 FILLS THESE IN.
-
-   Every value below is a PLACEHOLDER. Stage 3 derives the real palette from
-   the True Diesel logo (D4) and replaces them here. Nothing else in the
-   codebase should ever contain a raw colour, font stack, or spacing number —
-   if you find yourself typing `#` outside this file, add a token instead.
+   True Diesel Design Tokens
    ========================================================================== */
 
+@font-face {
+        font-family: "Inter";
+        src: url("../fonts/inter/InterVariable.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+}
+
+@font-face {
+        font-family: "Inter";
+        src: url("../fonts/inter/InterVariable-Italic.woff2") format("woff2");
+        font-style: italic;
+        font-weight: 100 900;
+        font-display: swap;
+}
+
+@font-face {
+        font-family: "Barlow Condensed";
+        src: url("../fonts/barlow-condensed/BarlowCondensed-SemiBold.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+}
+
+@font-face {
+        font-family: "Barlow Condensed";
+        src: url("../fonts/barlow-condensed/BarlowCondensed-Bold.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+}
+
+@font-face {
+        font-family: "Barlow Condensed";
+        src: url("../fonts/barlow-condensed/BarlowCondensed-BoldItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+}
+
 :root {
-	/* --- Brand ----------------------------------------------------------
-	   PLACEHOLDER VALUES. Replace with the real brand colours sampled from
-	   the logo at Stage 3. */
-	--td-brand:           #1f2a37;
-	--td-brand-strong:    #111827;
-	--td-accent:          #d64500;
-	--td-accent-strong:   #a83600;
+        /* --- Brand --------------------------------------------------------- */
+        --td-brand-blue:       #0066b3;
+        --td-brand-blue-dark:  #004c87;
+        --td-brand-orange:     #eb7b2e;
+        --td-brand-orange-dark:#c85f18;
 
-	/* --- Neutrals -------------------------------------------------------
-	   A 10-step ramp. Stage 3 may retune the mid steps, but the endpoints
-	   (0 and 900) should stay near-white and near-black for contrast. */
-	--td-n-0:   #ffffff;
-	--td-n-50:  #f7f8f9;
-	--td-n-100: #eceef1;
-	--td-n-200: #d8dce1;
-	--td-n-300: #b6bcc5;
-	--td-n-400: #8b939f;
-	--td-n-500: #666e7a;
-	--td-n-600: #4a515b;
-	--td-n-700: #343a42;
-	--td-n-800: #21262c;
-	--td-n-900: #12161a;
+        /* Semantic brand aliases */
+        --td-brand:            var(--td-brand-blue);
+        --td-brand-strong:     var(--td-brand-blue-dark);
+        --td-accent:           var(--td-brand-orange);
+        --td-accent-strong:    var(--td-brand-orange-dark);
 
-	/* --- Semantic ------------------------------------------------------
-	   Components reference THESE, not the raw ramp above. That indirection
-	   is what makes a dark mode or a rebrand a one-file change. */
-	--td-bg:            var(--td-n-0);
-	--td-bg-subtle:     var(--td-n-50);
-	--td-bg-inverse:    var(--td-n-900);
-	--td-text:          var(--td-n-800);
-	--td-text-muted:    var(--td-n-500);
-	--td-text-inverse:  var(--td-n-0);
-	--td-border:        var(--td-n-200);
-	--td-link:          var(--td-accent-strong);
-	--td-link-hover:    var(--td-accent);
-	--td-focus:         var(--td-accent);
+        /* --- Neutrals ------------------------------------------------------ */
+        --td-n-0:   #ffffff;
+        --td-n-50:  #f7f8fa;
+        --td-n-100: #eef1f4;
+        --td-n-200: #d9dee4;
+        --td-n-300: #b8c0ca;
+        --td-n-400: #8b96a3;
+        --td-n-500: #66717d;
+        --td-n-600: #4b5560;
+        --td-n-700: #343b43;
+        --td-n-800: #20262c;
+        --td-n-900: #11161b;
 
-	/* --- Type ----------------------------------------------------------
-	   PLACEHOLDER STACKS. Stage 3 picks the real typefaces; until then these
-	   resolve to the OS UI font so nothing looks accidentally "designed". */
-	--td-font-body:    system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-	--td-font-display: var(--td-font-body);
-	--td-font-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        /* --- Semantic surfaces/text --------------------------------------- */
+        --td-bg:            var(--td-n-0);
+        --td-bg-subtle:     var(--td-n-50);
+        --td-bg-muted:      var(--td-n-100);
+        --td-bg-inverse:    var(--td-n-900);
 
-	/* Fluid type scale. clamp() means no breakpoint-by-breakpoint font-size
-	   overrides at Stage 7 — sizes interpolate with the viewport. */
-	--td-fs-xs:   0.8125rem;
-	--td-fs-sm:   0.9375rem;
-	--td-fs-base: 1rem;
-	--td-fs-lg:   clamp(1.125rem, 0.35vw + 1.05rem, 1.25rem);
-	--td-fs-xl:   clamp(1.375rem, 0.8vw + 1.2rem, 1.75rem);
-	--td-fs-2xl:  clamp(1.75rem, 1.6vw + 1.4rem, 2.5rem);
-	--td-fs-3xl:  clamp(2.25rem, 3vw + 1.5rem, 3.75rem);
+        --td-text:          var(--td-n-800);
+        --td-text-muted:    var(--td-n-600);
+        --td-text-inverse:  var(--td-n-0);
 
-	--td-lh-tight: 1.15;
-	--td-lh-base:  1.6;
+        --td-border:        var(--td-n-200);
+        --td-border-strong: var(--td-n-300);
 
-	--td-fw-normal: 400;
-	--td-fw-medium: 500;
-	--td-fw-bold:   700;
+        /* Blue owns interactive text/focus states */
+        --td-link:          var(--td-brand-blue);
+        --td-link-hover:    var(--td-brand-blue-dark);
+        --td-focus:         var(--td-brand-blue);
 
-	/* --- Space ---------------------------------------------------------
-	   A single geometric-ish scale. Use these, not arbitrary rem values. */
-	--td-sp-1:  0.25rem;
-	--td-sp-2:  0.5rem;
-	--td-sp-3:  0.75rem;
-	--td-sp-4:  1rem;
-	--td-sp-5:  1.5rem;
-	--td-sp-6:  2rem;
-	--td-sp-7:  3rem;
-	--td-sp-8:  4rem;
-	--td-sp-9:  6rem;
+        /* Orange is primarily a filled CTA/highlight color */
+        --td-cta-bg:        var(--td-brand-orange);
+        --td-cta-bg-hover:  var(--td-brand-orange-dark);
+        --td-cta-text:      var(--td-n-900);
 
-	/* --- Layout --------------------------------------------------------- */
-	--td-wrap-max:   1200px;
-	--td-wrap-gutter: var(--td-sp-5);
-	--td-header-h:   72px;
+        /* Explorer tokens — Stage 5 consumes these */
+        --td-explorer-idle:      var(--td-n-300);
+        --td-explorer-hover:     var(--td-brand-blue);
+        --td-explorer-active:    var(--td-brand-orange);
+        --td-explorer-panel-bg:  var(--td-bg-subtle);
 
-	/* --- Shape and depth ------------------------------------------------ */
-	--td-radius-sm: 2px;
-	--td-radius:    4px;
-	--td-radius-lg: 10px;
+        /* --- Typography ---------------------------------------------------- */
+        --td-font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+        --td-font-display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+        --td-font-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-	--td-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
-	--td-shadow:    0 2px 8px rgb(0 0 0 / 0.10);
-	--td-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.14);
+        --td-fs-xs:   0.8125rem;
+        --td-fs-sm:   0.9375rem;
+        --td-fs-base: 1rem;
+        --td-fs-lg:   clamp(1.125rem, 0.35vw + 1.05rem, 1.25rem);
+        --td-fs-xl:   clamp(1.375rem, 0.8vw + 1.2rem, 1.75rem);
+        --td-fs-2xl:  clamp(1.75rem, 1.6vw + 1.4rem, 2.5rem);
+        --td-fs-3xl:  clamp(2.25rem, 3vw + 1.5rem, 3.75rem);
 
-	/* --- Motion ---------------------------------------------------------
-	   Durations live here so the reduced-motion rule in reset.css can zero
-	   them all out in one place. */
-	--td-dur-fast: 120ms;
-	--td-dur:      220ms;
-	--td-dur-slow: 400ms;
-	--td-ease:     cubic-bezier(0.2, 0, 0, 1);
+        --td-lh-tight: 1.1;
+        --td-lh-base:  1.6;
 
-	/* --- Z-index ---------------------------------------------------------
-	   Named layers. Prevents the z-index: 9999 arms race later. */
-	--td-z-base:    0;
-	--td-z-raised:  10;
-	--td-z-sticky:  100;
-	--td-z-nav:     200;
-	--td-z-overlay: 300;
+        --td-fw-normal: 400;
+        --td-fw-medium: 500;
+        --td-fw-semibold: 600;
+        --td-fw-bold:   700;
+
+        /* --- Space --------------------------------------------------------- */
+        --td-sp-1:  0.25rem;
+        --td-sp-2:  0.5rem;
+        --td-sp-3:  0.75rem;
+        --td-sp-4:  1rem;
+        --td-sp-5:  1.5rem;
+        --td-sp-6:  2rem;
+        --td-sp-7:  3rem;
+        --td-sp-8:  4rem;
+        --td-sp-9:  6rem;
+
+        /* --- Layout -------------------------------------------------------- */
+        --td-wrap-max:    1200px;
+        --td-wrap-gutter: clamp(1rem, 2vw, 1.5rem);
+        --td-header-h:    72px;
+
+        /* --- Shape/depth --------------------------------------------------- */
+        --td-radius-sm: 2px;
+        --td-radius:    4px;
+        --td-radius-lg: 10px;
+
+        --td-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.06);
+        --td-shadow:    0 2px 8px rgb(0 0 0 / 0.10);
+        --td-shadow-lg: 0 12px 32px rgb(0 0 0 / 0.14);
+
+        /* --- Motion -------------------------------------------------------- */
+        --td-dur-fast: 120ms;
+        --td-dur:      220ms;
+        --td-dur-slow: 400ms;
+        --td-ease:     cubic-bezier(0.2, 0, 0, 1);
+
+        /* --- Z-index ------------------------------------------------------- */
+        --td-z-base:    0;
+        --td-z-raised:  10;
+        --td-z-sticky:  100;
+        --td-z-nav:     200;
+        --td-z-overlay: 300;
 }
