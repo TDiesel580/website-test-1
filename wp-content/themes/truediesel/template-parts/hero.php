@@ -1,9 +1,9 @@
 <?php
 /**
- * Homepage hero — STAGE 4 PLACEHOLDER.
+ * Homepage hero.
  *
- * Copy and imagery come from D4 (real brand assets and service copy). The
- * markup shape is here so Stage 3's tokens have something to style against.
+ * Stage 4 establishes the homepage hierarchy and CTA structure.
+ * Final imagery can be refined later without changing this markup.
  *
  * @package TrueDiesel
  */
@@ -11,27 +11,37 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <section class="hero" aria-labelledby="hero-title">
-	<div class="wrap hero__inner">
+        <div class="wrap hero__inner">
 
-		<h1 class="hero__title" id="hero-title">
-			<?php
-			// Placeholder headline — replace at Stage 4 with real brand copy.
-			echo esc_html( get_bloginfo( 'name' ) );
-			?>
-		</h1>
+                <div class="hero__content">
 
-		<p class="hero__lede">
-			<?php echo esc_html( get_bloginfo( 'description' ) ); ?>
-		</p>
+                        <p class="hero__eyebrow">
+                                <?php esc_html_e( 'Advanced diagnostics. Heavy‑duty repair.', 'truediesel' ); ?>
+                        </p>
 
-		<p class="hero__actions">
-			<a class="button button--primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
-				<?php esc_html_e( 'Book a service', 'truediesel' ); ?>
-			</a>
-			<a class="button button--ghost" href="#explorer">
-				<?php esc_html_e( 'What we service', 'truediesel' ); ?>
-			</a>
-		</p>
+                        <h1 class="hero__title" id="hero-title">
+                                <?php esc_html_e( 'Advanced diagnostics. Heavy‑duty repair.', 'truediesel' ); ?>
+                        </h1>
 
-	</div>
+                        <p class="hero__lede">
+                                <?php esc_html_e( 'Diagnostics, electrical, emissions, drivetrain and mechanical service for commercial trucks.', 'truediesel' ); ?>
+                        </p>
+
+                        <div class="hero__actions">
+                                <a class="button button--primary" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
+                                        <?php esc_html_e( 'Book a service', 'truediesel' ); ?>
+                                </a>
+
+                                <a class="button button--ghost" href="#explorer">
+                                        <?php esc_html_e( 'Explore truck systems', 'truediesel' ); ?>
+                                </a>
+                        </div>
+
+                </div>
+
+                <div class="hero__visual" aria-hidden="true">
+                        <div class="hero__visual-placeholder"></div>
+                </div>
+
+        </div>
 </section>

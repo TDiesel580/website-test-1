@@ -45,28 +45,86 @@
 
 /* --- Hero ----------------------------------------------------------------- */
 
+/* --- Hero ---------------------------------------------------------------- */
+
 .hero {
-	padding-block: var(--td-sp-9);
-	background: var(--td-bg-subtle);
+        padding-block: var(--td-sp-9);
+        background: var(--td-bg-subtle);
 }
 
 .hero__inner {
-	display: grid;
-	gap: var(--td-sp-5);
-	max-width: 46rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+        align-items: center;
+        gap: var(--td-sp-8);
+}
+.hero__content {
+        max-width: 48rem;
+}
+
+.hero__eyebrow {
+        margin-bottom: var(--td-sp-3);
+        color: var(--td-link);
+        font-size: var(--td-fs-sm);
+        font-weight: var(--td-fw-semibold);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+}
+
+.hero__title {
+        font-size: clamp(3rem, 5.2vw, 5.25rem);
+        max-width: 13ch;
 }
 
 .hero__lede {
-	font-size: var(--td-fs-lg);
-	color: var(--td-text-muted);
+        margin-top: var(--td-sp-4);
+        max-width: 38rem;
+        font-size: var(--td-fs-lg);
+        color: var(--td-text-muted);
 }
 
 .hero__actions {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--td-sp-3);
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--td-sp-3);
+        margin-top: var(--td-sp-6);
 }
 
+.hero__visual {
+        min-width: 0;
+}
+
+.hero__visual-placeholder {
+        aspect-ratio: 4 / 3;
+        border-radius: var(--td-radius-lg);
+        background:
+                linear-gradient(
+                        135deg,
+                        var(--td-bg-muted),
+                        var(--td-bg)
+                );
+        border: 1px solid var(--td-border);
+        box-shadow: var(--td-shadow-sm);
+}
+
+@media (max-width: 52rem) {
+        .hero {
+                padding-block: var(--td-sp-8);
+        }
+
+        .hero__inner {
+                grid-template-columns: 1fr;
+                gap: var(--td-sp-6);
+        }
+
+        .hero__title {
+                max-width: 13ch;
+        }
+
+        .hero__visual {
+                max-width: 36rem;
+        }
+}
 /* --- Search form ---------------------------------------------------------- */
 
 .search-form {
@@ -121,6 +179,31 @@
 .widget__title {
 	font-size: var(--td-fs-lg);
 	margin-bottom: var(--td-sp-3);
+}
+
+/* --- Homepage service cards --------------------------------------------- */
+
+.service-card {
+        min-height: 10rem;
+        padding: var(--td-sp-5);
+        border: 1px solid var(--td-border);
+        border-radius: var(--td-radius-lg);
+        background: var(--td-bg);
+        box-shadow: var(--td-shadow-sm);
+}
+
+.service-card__title {
+        font-size: var(--td-fs-xl);
+}
+
+/* --- Homepage final CTA -------------------------------------------------- */
+
+.home-cta .button--primary {
+        flex-shrink: 0;
+}
+
+.home-cta .button--primary:focus-visible {
+        outline-color: var(--td-n-0);
 }
 
 /* --- WordPress core classes ----------------------------------------------

@@ -7,7 +7,7 @@
    ========================================================================== */
 
 .explorer {
-	padding-block: var(--td-sp-8);
+        padding-block: var(--td-sp-7);
 }
 
 .explorer__stage {

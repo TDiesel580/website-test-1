@@ -20,6 +20,10 @@ get_header();
 
 <?php get_template_part( 'template-parts/truck-explorer' ); ?>
 
+<?php get_template_part( 'template-parts/home-services' ); ?>
+
+<?php get_template_part( 'template-parts/home-trust' ); ?>
+
 <?php
 /*
  * If the front page is a static page, its editor content renders here. This
@@ -42,5 +46,6 @@ if ( is_page() && have_posts() ) :
 endif;
 ?>
 
-<?php
+
+<?php get_template_part( 'template-parts/home-cta' ); ?>
 get_footer();
