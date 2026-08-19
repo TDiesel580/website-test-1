@@ -48,4 +48,5 @@ endif;
 
 
 <?php get_template_part( 'template-parts/home-cta' ); ?>
+<?php
 get_footer();

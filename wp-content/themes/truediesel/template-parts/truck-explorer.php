@@ -1,30 +1,19 @@
 <?php
 /**
- * Interactive semi-truck system explorer — STAGE 5 PLACEHOLDER.
+ * Interactive semi-truck system explorer — Stage 5 placeholder.
  *
- * The container, ARIA wiring, and no-JS fallback are established now so that
- * Stage 5 is purely "drop in the hand-authored SVG (D1) and write the
- * interaction logic" rather than also re-litigating structure and
- * accessibility.
+ * Stage 4.5 connects the explorer markup to the canonical service-system
+ * contract. Stage 5 will add the inline SVG and interaction logic.
  *
- * Contract the SVG must honour when it arrives:
- *   - one <g> per system, id="td-system-{slug}"
- *   - slugs: engine, aftertreatment, transmission, brakes, electrical, cooling
- *   - each group carries role="button" tabindex="0" and an <title> element
+ * Every SVG system region must use the svg_id defined by
+ * td_get_service_systems().
  *
  * @package TrueDiesel
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$td_systems = array(
-	'engine'          => __( 'Engine &amp; ECU', 'truediesel' ),
-	'aftertreatment'  => __( 'Aftertreatment (DPF/DEF/SCR)', 'truediesel' ),
-	'transmission'    => __( 'Transmission &amp; Driveline', 'truediesel' ),
-	'brakes'          => __( 'ABS &amp; Air Brakes', 'truediesel' ),
-	'electrical'      => __( 'Electrical &amp; Charging', 'truediesel' ),
-	'cooling'         => __( 'Cooling &amp; HVAC', 'truediesel' ),
-);
+$td_systems = td_get_service_systems();
 ?>
 <section
 	class="explorer"
@@ -39,40 +28,54 @@ $td_systems = array(
 		</h2>
 
 		<div class="explorer__stage">
+
 			<div class="explorer__figure" data-explorer-figure>
 				<?php
 				/*
-				 * Stage 5: the SVG gets inlined here (inline, not <img>, so
-				 * CSS and JS can address individual groups).
+				 * Stage 5 will inline the hand-authored SVG here so its
+				 * individual system regions can be controlled by CSS and JS.
 				 */
 				?>
 			</div>
 
-			<div class="explorer__panel" data-explorer-panel aria-live="polite">
+			<div
+				class="explorer__panel"
+				id="explorer-panel"
+				data-explorer-panel
+				aria-live="polite"
+				aria-atomic="true"
+			>
 				<?php
-				/* Stage 5: detail copy for the selected system renders here. */
+				/*
+				 * Stage 5 will render the selected system's label,
+				 * summary and service-page link here.
+				 */
 				?>
 			</div>
+
 		</div>
 
 		<?php
 		/*
-		 * Always-present text list. It is the keyboard and no-JS path, and it
-		 * is what search engines and screen readers actually consume — the
-		 * SVG is an enhancement layered on top of this, never a replacement
-		 * for it.
+		 * This HTML control list remains available independently of the SVG.
+		 * Stage 5 will complete its keyboard and progressive-enhancement
+		 * behavior.
 		 */
 		?>
 		<ul class="explorer__list" data-explorer-list>
-			<?php foreach ( $td_systems as $td_slug => $td_label ) : ?>
+			<?php foreach ( $td_systems as $td_system ) : ?>
 				<li class="explorer__list-item">
 					<button
 						type="button"
 						class="explorer__trigger"
-						data-explorer-target="<?php echo esc_attr( $td_slug ); ?>"
+						data-explorer-target="<?php echo esc_attr( $td_system['id'] ); ?>"
+						data-explorer-svg-id="<?php echo esc_attr( $td_system['svg_id'] ); ?>"
+						data-explorer-page-slug="<?php echo esc_attr( $td_system['page_slug'] ); ?>"
+						data-explorer-summary="<?php echo esc_attr( $td_system['summary'] ); ?>"
+						aria-controls="explorer-panel"
 						aria-expanded="false"
 					>
-						<?php echo wp_kses_post( $td_label ); ?>
+						<?php echo esc_html( $td_system['label'] ); ?>
 					</button>
 				</li>
 			<?php endforeach; ?>
