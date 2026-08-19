@@ -33,4 +33,5 @@ define( 'TD_URI', get_template_directory_uri() );
 require_once TD_DIR . '/inc/setup.php';
 require_once TD_DIR . '/inc/enqueue.php';
 require_once TD_DIR . '/inc/cleanup.php';
+require_once TD_DIR . '/inc/services.php';
 require_once TD_DIR . '/inc/template-tags.php';
