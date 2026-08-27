@@ -69,5 +69,12 @@ function td_get_service_systems() {
 			'page_slug' => 'cooling-hvac',
 			'svg_id'    => 'td-system-cooling',
 		),
+		 'trailer' => array(
+                        'id'        => 'trailer',
+                        'label'     => __( 'Trailer Repair', 'truediesel' ),
+                        'summary'   => __( 'Trailer brake, suspension, electrical, wheel-end and structural repair and diagnostics.', 'truediesel' ),
+                        'page_slug' => 'trailer-repair',
+                        'svg_id'    => 'td-system-trailer',
+                ),
 	);
 }

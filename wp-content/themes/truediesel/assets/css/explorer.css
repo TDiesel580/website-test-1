@@ -26,17 +26,148 @@
 }
 
 .explorer__figure {
-	/* Reserve the aspect ratio before the SVG loads so the section does not
-	   jump — this is the CLS guard Stage 8 would otherwise have to chase. */
-	aspect-ratio: 16 / 9;
-	background: var(--td-bg-subtle);
+	position: relative;
+	aspect-ratio: 317.06039 / 77.83522;
+	overflow: hidden;
 	border-radius: var(--td-radius-lg);
+	background: var(--td-bg-subtle);
+	isolation: isolate;
 }
 
+.explorer__truck-base,
+.explorer__hotspots {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.explorer__truck-base {
+	object-fit: contain;
+	pointer-events: none;
+	user-select: none;
+}
+
+.explorer__hotspots {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	overflow: visible;
+}
+
+/* Interactive regions positioned over the tractor-trailer artwork. */
+.truck-hotspot {
+	cursor: pointer;
+	color: var(--td-explorer-hover);
+}
+
+.truck-hotspot__target {
+	fill: transparent;
+	pointer-events: all;
+}
+
+.truck-hotspot__highlight {
+	fill: currentColor;
+	fill-opacity: 0;
+	stroke: currentColor;
+	stroke-width: 0.8;
+	stroke-opacity: 0;
+	pointer-events: none;
+	transition:
+		fill-opacity 200ms var(--td-ease),
+		stroke-opacity 200ms var(--td-ease);
+}
+
+.truck-hotspot:hover .truck-hotspot__highlight,
+.truck-hotspot.is-preview .truck-hotspot__highlight {
+	fill-opacity: 0.28;
+	stroke-opacity: 0.95;
+}
+
+.truck-hotspot.is-active {
+	color: var(--td-explorer-active);
+}
+
+.truck-hotspot.is-active .truck-hotspot__highlight {
+	fill-opacity: 0.34;
+	stroke-opacity: 1;
+}
+
+.truck-hotspot:focus {
+	outline: none;
+}
+
+.truck-hotspot:focus-visible .truck-hotspot__highlight {
+	fill-opacity: 0.34;
+	stroke: var(--td-focus);
+	stroke-width: 1.4;
+	stroke-opacity: 1;
+}
+
+/* The trailer category uses a locator point at the fifth-wheel hitch. */
+.truck-hotspot__marker {
+	fill: var(--td-explorer-hover);
+	stroke: var(--td-n-0);
+	stroke-width: 0.8;
+	pointer-events: none;
+}
+
+.truck-hotspot--point.is-active .truck-hotspot__marker {
+	fill: var(--td-explorer-active);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.truck-hotspot__highlight {
+		transition: none;
+	}
+}
 .explorer__panel {
 	min-height: 12rem;
 }
 
+/* Dot-based hotspot presentation. Large SVG shapes remain hit targets only. */
+.truck-hotspot__highlight {
+	display: none;
+}
+
+.truck-hotspot__marker {
+	fill: var(--td-explorer-hover);
+	stroke: var(--td-n-0);
+	stroke-width: 0.9;
+	filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.35));
+	pointer-events: none;
+	transform-box: fill-box;
+	transform-origin: center;
+	transition:
+		transform 180ms var(--td-ease),
+		fill 180ms var(--td-ease),
+		stroke-width 180ms var(--td-ease);
+}
+
+.truck-hotspot:hover .truck-hotspot__marker,
+.truck-hotspot.is-preview .truck-hotspot__marker {
+	transform: scale(1.45);
+}
+
+.truck-hotspot:focus-visible .truck-hotspot__marker {
+	stroke: var(--td-focus);
+	stroke-width: 1.5;
+	transform: scale(1.45);
+}
+
+.truck-hotspot.is-active .truck-hotspot__marker {
+	fill: var(--td-explorer-active);
+	transform: scale(1.35);
+}
+
+.truck-hotspot.is-active:hover .truck-hotspot__marker {
+	transform: scale(1.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.truck-hotspot__marker {
+		transition: none;
+	}
+}
 /* Text list: the keyboard and no-JS path. It is visible by default and
    Stage 5's JS may restyle it, but it must never be display:none. */
 .explorer__list {
