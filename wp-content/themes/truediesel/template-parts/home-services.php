@@ -32,7 +32,17 @@ $td_systems = td_get_service_systems();
                         <?php foreach ( $td_systems as $td_system ) : ?>
 
                                 <article class="service-card">
-
+                                        <?php if ( ! empty( $td_system['preview_image'] ) ) : ?>
+                                                <div class="service-card__media">
+                                                        <img
+                                                                class="service-card__image"
+                                                                src="<?php echo esc_url( get_theme_file_uri( $td_system['preview_image'] ) ); ?>"
+                                                                alt="<?php echo esc_attr( $td_system['preview_alt'] ?? '' ); ?>"
+                                                                loading="lazy"
+                                                                decoding="async"
+                                                        />
+                                                </div>
+                                        <?php endif; ?>
                                         <h3 class="service-card__title">
                                                 <?php echo esc_html( $td_system['label'] ); ?>
                                         </h3>

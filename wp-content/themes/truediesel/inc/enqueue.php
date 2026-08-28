@@ -49,6 +49,7 @@ function td_style_manifest() {
 		'layout'     => 'assets/css/layout.css',
 		'components' => 'assets/css/components.css',
 		'explorer'   => 'assets/css/explorer.css',
+		'about'      => 'assets/css/about.css',
 	);
 }
 

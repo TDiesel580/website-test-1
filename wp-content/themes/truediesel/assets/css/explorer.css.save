@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Truck system explorer — STAGE 5.
+
+   Structural placeholders only. The real work lands here once the
+   hand-authored SVG (D1) exists. Kept as its own file so Stage 5 never has to
+   touch the shared stylesheets.
+   ========================================================================== */
+
+.explorer {
+        padding-block: var(--td-sp-7);
+}
+
+.explorer__stage {
+	display: grid;
+	gap: var(--td-sp-6);
+	margin-top: var(--td-sp-6);
+}
+
+/* Two columns once there is room for the SVG and its detail panel
+   side by side. Stage 7 confirms the breakpoint. */
+@media (min-width: 62em) {
+	.explorer__stage {
+		grid-template-columns: 3fr 2fr;
+		align-items: start;
+	}
+}
+
+.explorer__figure {
+	position: relative;
+	aspect-ratio: 317.06039 / 77.83522;
+	overflow: hidden;
+	border-radius: var(--td-radius-lg);
+	background: var(--td-bg-subtle);
+	isolation: isolate;
+}
+
+.explorer__truck-base,
+.explorer__hotspots {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.explorer__truck-base {
+	object-fit: contain;
+	pointer-events: none;
+	user-select: none;
+}
+
+.explorer__hotspots {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	overflow: visible;
+}
+
+
+.explorer__panel {
+	min-height: 12rem;
+}
+
+/* Text list: the keyboard and no-JS path. It is visible by default and
+   Stage 5's JS may restyle it, but it must never be display:none. */
+.explorer__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--td-sp-3);
+	margin-top: var(--td-sp-6);
+}
+
+.explorer__trigger {
+	padding: var(--td-sp-3) var(--td-sp-4);
+	border: 1px solid var(--td-border);
+	border-radius: var(--td-radius);
+	min-height: 44px;
+	background: var(--td-bg);
+	transition: border-color var(--td-dur) var(--td-ease),
+	            background-color var(--td-dur) var(--td-ease);
+}
+
+.explorer__trigger:hover,
+.explorer__trigger[aria-expanded="true"] {
+	border-color: var(--td-accent);
+	background: var(--td-bg-subtle);
+}
+
+/* Hover/active treatment for SVG system groups, applied once the artwork is
+   inlined at Stage 5. */
+[id^="td-system-"] {
+	cursor: pointer;
+	transition: opacity var(--td-dur) var(--td-ease);
+}
+
+[id^="td-system-"]:hover,
+[id^="td-system-"].is-active {
+	opacity: 1;
+}

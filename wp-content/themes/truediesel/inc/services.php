@@ -33,6 +33,8 @@ function td_get_service_systems() {
 			'summary'   => __( 'Electronic engine diagnostics, performance troubleshooting and control-module service.', 'truediesel' ),
 			'page_slug' => 'engine-ecu',
 			'svg_id'    => 'td-system-engine',
+			'preview_image' => 'assets/img/explorer/engine.png',
+                        'preview_alt'   => __( 'Heavy-duty diesel engine.', 'truediesel' ),
 		),
 		'aftertreatment' => array(
 			'id'        => 'aftertreatment',
@@ -40,6 +42,8 @@ function td_get_service_systems() {
 			'summary'   => __( 'Diagnosis and service for DPF, DEF and SCR aftertreatment systems.', 'truediesel' ),
 			'page_slug' => 'emissions-aftertreatment',
 			'svg_id'    => 'td-system-aftertreatment',
+			'preview_image' => 'assets/img/explorer/aftertreatment.png',
+                        'preview_alt'   => __( 'Diesel exhaust aftertreatment assembly.', 'truediesel' ),
 		),
 		'transmission' => array(
 			'id'        => 'transmission',
@@ -47,6 +51,8 @@ function td_get_service_systems() {
 			'summary'   => __( 'Electronic transmission diagnostics and driveline fault troubleshooting.', 'truediesel' ),
 			'page_slug' => 'transmission-driveline',
 			'svg_id'    => 'td-system-transmission',
+                        'preview_image' => 'assets/img/explorer/transmission.png',
+                        'preview_alt'   => __( 'Heavy-duty truck transmission.', 'truediesel' ),
 		),
 		'brakes' => array(
 			'id'        => 'brakes',
@@ -54,6 +60,8 @@ function td_get_service_systems() {
 			'summary'   => __( 'ABS fault tracing and heavy-duty air-brake system diagnosis and service.', 'truediesel' ),
 			'page_slug' => 'abs-brakes',
 			'svg_id'    => 'td-system-brakes',
+                        'preview_image' => 'assets/img/explorer/brakes.png',
+                        'preview_alt'   => __( 'Heavy-duty air-brake assembly.', 'truediesel' ),
 		),
 		'electrical' => array(
 			'id'        => 'electrical',
@@ -61,6 +69,8 @@ function td_get_service_systems() {
 			'summary'   => __( 'Electrical fault tracing plus starting, charging and network diagnostics.', 'truediesel' ),
 			'page_slug' => 'electrical',
 			'svg_id'    => 'td-system-electrical',
+                        'preview_image' => 'assets/img/explorer/electrical.png',
+                        'preview_alt'   => __( 'Truck electrical components.', 'truediesel' ),
 		),
 		'cooling' => array(
 			'id'        => 'cooling',
@@ -68,6 +78,9 @@ function td_get_service_systems() {
 			'summary'   => __( 'Cooling-system and cab climate-control diagnosis, repair and maintenance.', 'truediesel' ),
 			'page_slug' => 'cooling-hvac',
 			'svg_id'    => 'td-system-cooling',
+                        'preview_image' => 'assets/img/explorer/cooling.png',
+                        'preview_alt'   => __( 'Truck radiator and cooling assembly.', 'truediesel' ),
+
 		),
 		 'trailer' => array(
                         'id'        => 'trailer',
@@ -75,6 +88,8 @@ function td_get_service_systems() {
                         'summary'   => __( 'Trailer brake, suspension, electrical, wheel-end and structural repair and diagnostics.', 'truediesel' ),
                         'page_slug' => 'trailer-repair',
                         'svg_id'    => 'td-system-trailer',
+                        'preview_image' => 'assets/img/explorer/trailer.png',
+                        'preview_alt'   => __( 'Trailer running gear and suspension.', 'truediesel' ),
                 ),
 	);
 }

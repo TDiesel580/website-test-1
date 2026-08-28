@@ -1,0 +1,281 @@
+
+<svg
+        class="truck-svg"
+        viewBox="0 0 1200 675"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-labelledby="truck-svg-title truck-svg-desc"
+>
+        <title id="truck-svg-title">Interactive heavy-duty semi-truck systems</title>
+        <desc id="truck-svg-desc">
+                Side-view semi-truck diagram with selectable engine, emissions,
+                transmission, brakes, electrical and cooling systems.
+        </desc>
+
+        <!-- Base truck silhouette ------------------------------------------------ -->
+
+        <g class="truck-svg__body" aria-hidden="true">
+
+                <!-- Trailer -->
+                <path
+                        class="truck-svg__shell"
+                        d="M520 150 H1100 V430 H520 Z"
+                />
+
+                <!-- Tractor cab -->
+                <path
+                        class="truck-svg__shell"
+                        d="M235 230
+                           H410
+                           L505 325
+                           V430
+                           H185
+                           V315
+                           L215 285
+                           Z"
+                />
+
+                <!-- Hood -->
+                <path
+                        class="truck-svg__shell"
+                        d="M70 325
+                           H235
+                           V430
+                           H70
+                           Z"
+                />
+
+                <!-- Windshield -->
+                <path
+                        class="truck-svg__glass"
+                        d="M265 250 H395 L458 315 H265 Z"
+                />
+
+                <!-- Chassis -->
+                <rect
+                        class="truck-svg__chassis"
+                        x="105"
+                        y="430"
+                        width="1010"
+                        height="35"
+                        rx="10"
+                />
+
+                <!-- Wheels -->
+                <g class="truck-svg__wheels">
+                        <circle cx="215" cy="495" r="62" />
+                        <circle cx="470" cy="495" r="62" />
+                        <circle cx="890" cy="495" r="62" />
+                        <circle cx="1030" cy="495" r="62" />
+                </g>
+
+                <g class="truck-svg__wheel-hubs">
+                        <circle cx="215" cy="495" r="25" />
+                        <circle cx="470" cy="495" r="25" />
+                        <circle cx="890" cy="495" r="25" />
+                        <circle cx="1030" cy="495" r="25" />
+                </g>
+
+        </g>
+
+        <!-- Interactive systems -------------------------------------------------
+             IDs below are defined by td_get_service_systems().
+             Stage 5 JS binds these regions to the corresponding HTML controls.
+        -->
+
+        <!-- Cooling / radiator -->
+        <g
+                id="td-system-cooling"
+                class="truck-system truck-system--cooling"
+                role="button"
+                tabindex="0"
+                aria-label="Cooling and HVAC"
+                data-system="cooling"
+        >
+                <title>Cooling &amp; HVAC</title>
+
+                <rect
+                        class="truck-system__region"
+                        x="78"
+                        y="338"
+                        width="48"
+                        height="82"
+                        rx="8"
+                />
+
+                <path
+                        class="truck-system__detail"
+                        d="M90 350 V408
+                           M102 350 V408
+                           M114 350 V408"
+                />
+        </g>
+
+        <!-- Engine / ECU -->
+        <g
+                id="td-system-engine"
+                class="truck-system truck-system--engine"
+                role="button"
+                tabindex="0"
+                aria-label="Engine and ECU"
+                data-system="engine"
+        >
+                <title>Engine &amp; ECU</title>
+
+                <rect
+                        class="truck-system__region"
+                        x="132"
+                        y="342"
+                        width="100"
+                        height="72"
+                        rx="14"
+                />
+
+                <circle
+                        class="truck-system__detail"
+                        cx="165"
+                        cy="378"
+                        r="19"
+                />
+
+                <path
+                        class="truck-system__detail"
+                        d="M185 360 H216
+                           M185 378 H225
+                           M185 396 H210"
+                />
+        </g>
+
+        <!-- Electrical -->
+        <g
+                id="td-system-electrical"
+                class="truck-system truck-system--electrical"
+                role="button"
+                tabindex="0"
+                aria-label="Electrical system"
+                data-system="electrical"
+        >
+                <title>Electrical</title>
+
+                <rect
+                        class="truck-system__region"
+                        x="285"
+                        y="330"
+                        width="90"
+                        height="62"
+                        rx="12"
+                />
+
+                <path
+                        class="truck-system__detail"
+                        d="M330 339
+                           L310 365
+                           H330
+                           L316 386
+                           L352 353
+                           H332
+                           Z"
+                />
+        </g>
+
+        <!-- Aftertreatment -->
+        <g
+                id="td-system-aftertreatment"
+                class="truck-system truck-system--aftertreatment"
+                role="button"
+                tabindex="0"
+                aria-label="Emissions and aftertreatment"
+                data-system="aftertreatment"
+        >
+                <title>Emissions &amp; Aftertreatment</title>
+
+                <rect
+                        class="truck-system__region"
+                        x="395"
+                        y="374"
+                        width="125"
+                        height="52"
+                        rx="18"
+                />
+
+                <path
+                        class="truck-system__detail"
+                        d="M415 387 H497
+                           M415 400 H497
+                           M415 413 H497"
+                />
+        </g>
+
+        <!-- Transmission -->
+        <g
+                id="td-system-transmission"
+                class="truck-system truck-system--transmission"
+                role="button"
+                tabindex="0"
+                aria-label="Transmission and driveline"
+                data-system="transmission"
+        >
+                <title>Transmission &amp; Driveline</title>
+
+                <path
+                        class="truck-system__region"
+                        d="M260 420
+                           H405
+                           L445 440
+                           H630
+                           V458
+                           H440
+                           L400 438
+                           H260
+                           Z"
+                />
+
+                <circle
+                        class="truck-system__detail"
+                        cx="335"
+                        cy="430"
+                        r="16"
+                />
+        </g>
+
+        <!-- ABS / brakes -->
+        <g
+                id="td-system-brakes"
+                class="truck-system truck-system--brakes"
+                role="button"
+                tabindex="0"
+                aria-label="ABS and brakes"
+                data-system="brakes"
+        >
+                <title>ABS &amp; Brakes</title>
+
+                <circle
+                        class="truck-system__region"
+                        cx="215"
+                        cy="495"
+                        r="43"
+                />
+
+                <circle
+                        class="truck-system__region"
+                        cx="470"
+                        cy="495"
+                        r="43"
+                />
+
+                <circle
+                        class="truck-system__region"
+                        cx="890"
+                        cy="495"
+                        r="43"
+                />
+
+                <circle
+                        class="truck-system__region"
+                        cx="1030"
+                        cy="495"
+                        r="43"
+                />
+        </g>
+
+</svg>
