@@ -17,7 +17,7 @@ get_header();
             <h1>Shop</h1>
 
             <p>
-                Gear made for the people who keep things moving.
+                Gear made for the people who keep things moving.<br>
                 Official True Diesel merchandise available locally.
             </p>
         </div>
