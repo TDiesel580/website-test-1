@@ -204,3 +204,145 @@
 [id^="td-system-"].is-active {
 	opacity: 1;
 }
+
+/* Full-width truck explorer visual */
+.explorer__stage {
+        display: block;
+}
+
+.explorer__figure {
+        width: 100%;
+        max-width: none;
+}
+
+.explorer__panel {
+        display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Truck hotspot -> existing service card interaction
+   -------------------------------------------------------------------------- */
+
+/* Old selector buttons are no longer part of the visual interface. */
+.explorer__list {
+        display: none;
+}
+
+/* Default card appearance remains unchanged. */
+.service-card {
+        transition:
+                border-color 180ms var(--td-ease),
+                box-shadow 180ms var(--td-ease);
+}
+
+/* Hover/focus preview from a truck hotspot. */
+.service-card.is-explorer-preview {
+        border-color: var(--td-explorer-hover);
+        box-shadow:
+                0 0 0 2px var(--td-explorer-hover),
+                var(--td-shadow-sm);
+}
+
+/* Persistent state after clicking a truck hotspot. */
+.service-card.is-explorer-active {
+        border-color: var(--td-explorer-active);
+        box-shadow:
+                0 0 0 2px var(--td-explorer-active),
+                var(--td-shadow-sm);
+}
+
+/* Space between explorer heading and truck */
+.explorer__stage {
+        margin-top: 1.5rem;
+}
+
+/* Selected system remains True Diesel blue */
+.truck-hotspot.is-active {
+        color: var(--td-explorer-hover);
+}
+
+.truck-hotspot.is-active .truck-hotspot__marker,
+.truck-hotspot--point.is-active .truck-hotspot__marker {
+        fill: var(--td-explorer-hover);
+}
+
+/* Existing service cards are now interactive selectors */
+.service-card[data-service-system] {
+        cursor: pointer;
+}
+
+.service-card[data-service-system]:focus-visible {
+        outline: 3px solid var(--td-focus);
+        outline-offset: 3px;
+}
+
+/* Final hotspot states:
+   hover/preview = blue
+   clicked/selected = orange
+*/
+.truck-hotspot.is-active {
+        color: var(--td-explorer-active);
+}
+
+.truck-hotspot.is-active .truck-hotspot__marker,
+.truck-hotspot--point.is-active .truck-hotspot__marker {
+        fill: var(--td-explorer-active);
+}
+
+/* Balance top and bottom whitespace inside truck image area */
+.explorer__figure {
+        --explorer-truck-y-offset: 10px;
+}
+
+.explorer__truck-base,
+.explorer__hotspots {
+        transform: translateY(var(--explorer-truck-y-offset));
+}
+
+
+/* Equal visual spacing above and below truck */
+.explorer__stage {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+}
+
+.explorer {
+        padding-bottom: 0;
+}
+
+/* Final explorer spacing: space above truck only */
+.explorer__stage {
+        margin-top: 3rem;
+        margin-bottom: 0;
+}
+
+/* Prevent the bottom of the truck/wheels from being visually clipped */
+.explorer__figure {
+        overflow: visible;
+}
+
+/* Shift only the grey truck background downward */
+.explorer__figure {
+        background: transparent;
+}
+
+.explorer__figure::before {
+        content: "";
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: var(--td-radius-lg);
+        background: var(--td-bg-subtle);
+        z-index: 0;
+}
+
+.explorer__truck-base {
+        position: relative;
+        z-index: 1;
+}
+
+.explorer__hotspots {
+        z-index: 2;
+}

@@ -31,7 +31,10 @@ $td_systems = td_get_service_systems();
                 <div class="home-services__grid">
                         <?php foreach ( $td_systems as $td_system ) : ?>
 
-                                <article class="service-card">
+                                <article
+                                        class="service-card"
+                                        data-service-system="<?php echo esc_attr( $td_system['id'] ); ?>"
+                                >
                                         <?php if ( ! empty( $td_system['preview_image'] ) ) : ?>
                                                 <div class="service-card__media">
                                                         <img

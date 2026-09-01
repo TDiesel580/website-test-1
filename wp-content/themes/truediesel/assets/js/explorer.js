@@ -1,10 +1,3 @@
-/**
- * True Diesel truck system explorer.
- *
- * The HTML control list is the canonical interaction interface.
- * The SVG mirrors the same state through selectSystem().
- */
-
 (function () {
         'use strict';
 
@@ -14,103 +7,142 @@
                 return;
         }
 
-        var triggers = root.querySelectorAll('[data-explorer-target]');
-        var panel = root.querySelector('[data-explorer-panel]');
-        var current = null;
+        var hotspots = root.querySelectorAll('.truck-hotspot[data-system]');
+        var cards = document.querySelectorAll('[data-service-system]');
 
-        /**
-         * Find a text trigger for a system.
-         *
-         * @param {string} slug Stable service-system ID.
-         * @return {Element|null}
-         */
-        function getTrigger(slug) {
-                return root.querySelector(
-                        '[data-explorer-target="' + slug + '"]'
-                );
-        }
+        var activeSystem = null;
+        var previewSystem = null;
 
-        /**
-         * Render the detail panel for a system.
-         *
-         * @param {Element|null} trigger Canonical HTML trigger.
-         */
-        function renderPanel(trigger) {
-                if (!panel) {
-                        return;
-                }
+        function updateState() {
+                hotspots.forEach(function (hotspot) {
+                        var system = hotspot.getAttribute('data-system');
+                        var isActive = system === activeSystem;
+                        var isPreview =
+                                system === previewSystem &&
+                                system !== activeSystem;
 
-                panel.replaceChildren();
+                        hotspot.classList.toggle('is-active', isActive);
+                        hotspot.classList.toggle('is-preview', isPreview);
 
-                if (!trigger) {
-                        return;
-                }
-
-                var title = document.createElement('h3');
-                title.className = 'explorer__panel-title';
-                title.textContent = trigger.textContent.trim();
-
-                var summary = document.createElement('p');
-                summary.className = 'explorer__panel-summary';
-                summary.textContent =
-                        trigger.getAttribute('data-explorer-summary') || '';
-
-                panel.appendChild(title);
-                panel.appendChild(summary);
-        }
-
-        /**
-         * Set the selected service system.
-         *
-         * Selecting the active system again clears the selection.
-         *
-         * @param {string|null} slug Stable service-system ID.
-         */
-        function selectSystem(slug) {
-                if (current === slug) {
-                        slug = null;
-                }
-
-                current = slug;
-
-                triggers.forEach(function (button) {
-                        var isActive =
-                                button.getAttribute('data-explorer-target') === slug;
-
-                        button.setAttribute(
-                                'aria-expanded',
+                        hotspot.setAttribute(
+                                'aria-pressed',
                                 String(isActive)
                         );
                 });
 
-                root.querySelectorAll('[id^="td-system-"]').forEach(
-                        function (group) {
-                                var trigger = slug ? getTrigger(slug) : null;
-                                var svgId = trigger
-                                        ? trigger.getAttribute('data-explorer-svg-id')
-                                        : null;
+                cards.forEach(function (card) {
+                        var system = card.getAttribute('data-service-system');
+                        var isActive = system === activeSystem;
+                        var isPreview =
+                                system === previewSystem &&
+                                system !== activeSystem;
 
-                                group.classList.toggle(
-                                        'is-active',
-                                        group.id === svgId
-                                );
-                        }
-                );
+                        card.classList.toggle(
+                                'is-explorer-active',
+                                isActive
+                        );
 
-                renderPanel(slug ? getTrigger(slug) : null);
+                        card.classList.toggle(
+                                'is-explorer-preview',
+                                isPreview
+                        );
+
+                        card.setAttribute(
+                                'aria-pressed',
+                                String(isActive)
+                        );
+                });
         }
 
-        triggers.forEach(function (button) {
-                button.addEventListener('click', function () {
-                        selectSystem(
-                                button.getAttribute('data-explorer-target')
-                        );
+        function preview(system) {
+                previewSystem = system;
+                updateState();
+        }
+
+        function clearPreview() {
+                previewSystem = null;
+                updateState();
+        }
+
+        function select(system) {
+                activeSystem = system;
+                previewSystem = null;
+                updateState();
+        }
+
+        /*
+         * Truck -> service card
+         */
+        hotspots.forEach(function (hotspot) {
+                var system = hotspot.getAttribute('data-system');
+
+                hotspot.setAttribute('aria-pressed', 'false');
+
+                hotspot.addEventListener('mouseenter', function () {
+                        preview(system);
+                });
+
+                hotspot.addEventListener('mouseleave', function () {
+                        clearPreview();
+                });
+
+                hotspot.addEventListener('focus', function () {
+                        preview(system);
+                });
+
+                hotspot.addEventListener('blur', function () {
+                        clearPreview();
+                });
+
+                hotspot.addEventListener('click', function () {
+                        select(system);
+                });
+
+                hotspot.addEventListener('keydown', function (event) {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                select(system);
+                        }
                 });
         });
 
         /*
-         * Stage 5 SVG regions call this same function.
-         * Keeping it on the explorer root avoids creating a global function.
+         * Service card -> truck
          */
-        root.tdSelectSystem = selectSystem;
+        cards.forEach(function (card) {
+                var system = card.getAttribute('data-service-system');
+
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-pressed', 'false');
+
+                card.addEventListener('mouseenter', function () {
+                        preview(system);
+                });
+
+                card.addEventListener('mouseleave', function () {
+                        clearPreview();
+                });
+
+                card.addEventListener('focus', function () {
+                        preview(system);
+                });
+
+                card.addEventListener('blur', function () {
+                        clearPreview();
+                });
+
+                card.addEventListener('click', function () {
+                        select(system);
+                });
+
+                card.addEventListener('keydown', function (event) {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault();
+                                select(system);
+                        }
+                });
+        });
+
+        updateState();
 })();

@@ -32,7 +32,7 @@ $td_systems = td_get_service_systems();
 			<div class="explorer__figure" data-explorer-figure>
 				<img
 					class="explorer__truck-base"
-					src="<?php echo esc_url( get_theme_file_uri( 'assets/svg/tractor-trailer-base.svg' ) ); ?>"
+					src="<?php echo esc_url( get_theme_file_uri( 'assets/images/truck-explorer/truck.svg' ) ); ?>"
 					alt=""
 					width="317"
 					height="78"
@@ -72,7 +72,7 @@ $td_systems = td_get_service_systems();
 						aria-label="<?php esc_attr_e( 'Engine and ECU', 'truediesel' ); ?>"
 						data-system="engine"
 					>
-						<ellipse class="truck-hotspot__target" cx="23" cy="52" rx="20" ry="13" />
+						<ellipse class="truck-hotspot__target" cx="24" cy="52" rx="9" ry="12" />
 						<ellipse class="truck-hotspot__highlight" cx="23" cy="52" rx="17" ry="10" />
 						<circle class="truck-hotspot__marker" cx="23" cy="52" r="2" />
                                         </g>
@@ -147,9 +147,9 @@ $td_systems = td_get_service_systems();
 						aria-label="<?php esc_attr_e( 'Trailer Repair', 'truediesel' ); ?>"
 						data-system="trailer"
 					>
-						<circle class="truck-hotspot__target" cx="86" cy="61" r="9" />
-						<circle class="truck-hotspot__highlight" cx="86" cy="61" r="4" />
-						<circle class="truck-hotspot__marker" cx="86" cy="61" r="2" />
+						<circle class="truck-hotspot__target" cx="195" cy="29" r="9" />
+						<circle class="truck-hotspot__highlight" cx="195" cy="29" r="4" />
+						<circle class="truck-hotspot__marker" cx="195" cy="29" r="2" />
 					</g>
 
 				</svg>
