@@ -38,6 +38,11 @@ $td_systems = td_get_service_systems();
 					height="78"
 					aria-hidden="true"
 				/>
+				<img
+					class="explorer__trailer-logo"
+					src="<?php echo esc_url( get_theme_file_uri( 'assets/images/truck-explorer/trailer-logo.png' ) ); ?>"
+					alt="<?php esc_attr_e( 'True Diesel trailer branding', 'truediesel' ); ?>"
+					/>
 
 				<svg
 					class="explorer__hotspots"
@@ -147,9 +152,9 @@ $td_systems = td_get_service_systems();
 						aria-label="<?php esc_attr_e( 'Trailer Repair', 'truediesel' ); ?>"
 						data-system="trailer"
 					>
-						<circle class="truck-hotspot__target" cx="195" cy="29" r="9" />
-						<circle class="truck-hotspot__highlight" cx="195" cy="29" r="4" />
-						<circle class="truck-hotspot__marker" cx="195" cy="29" r="2" />
+						<circle class="truck-hotspot__target" cx="195" cy="49" r="9" />
+						<circle class="truck-hotspot__highlight" cx="195" cy="49" r="4" />
+						<circle class="truck-hotspot__marker" cx="195" cy="49" r="2" />
 					</g>
 
 				</svg>
