@@ -84,6 +84,13 @@ function td_enqueue_assets() {
 			'strategy'  => 'defer',
 		)
 	);
+wp_enqueue_script(
+    'truediesel-hero-carousel',
+    TD_URI . '/assets/js/hero-carousel.js',
+    array(),
+    td_asset_version( 'assets/js/hero-carousel.js' ),
+    true
+);
 
 	// Truck system explorer (Stage 5). Only loaded where it actually renders,
 	// so interior pages never pay for it.

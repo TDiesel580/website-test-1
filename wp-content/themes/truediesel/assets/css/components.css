@@ -1344,3 +1344,176 @@ a.contact-card:hover {
     }
 
 }
+
+
+/* ==========================================================
+   HERO MEDIA CAROUSEL
+   Images + video slides with manual navigation dots
+   ========================================================== */
+
+.hero__slides {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+}
+
+.hero__slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 0;
+        animation: none !important;
+        background-image: none !important;
+        transition:
+                opacity 700ms ease,
+                visibility 700ms ease;
+}
+
+.hero__slide.is-active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+}
+
+.hero__slide img,
+.hero__slide video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+}
+
+.hero__dots {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        transform: translateX(-50%);
+}
+
+.hero__dot {
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.35);
+        cursor: pointer;
+        transition:
+                transform 180ms ease,
+                background-color 180ms ease,
+                border-color 180ms ease;
+}
+
+.hero__dot:hover,
+.hero__dot:focus-visible {
+        transform: scale(1.25);
+        background: rgba(255, 255, 255, 0.8);
+}
+
+.hero__dot.is-active {
+        transform: scale(1.25);
+        background: #f58220;
+        border-color: #f58220;
+}
+
+@media (max-width: 700px) {
+        .hero__dots {
+                bottom: 14px;
+                gap: 7px;
+        }
+
+        .hero__dot {
+                width: 9px;
+                height: 9px;
+        }
+}
+
+@media (prefers-reduced-motion: reduce) {
+        .hero__slide,
+        .hero__dot {
+                transition: none;
+        }
+}
+
+
+/* ==========================================================
+   HERO TEXT READABILITY
+   Localized contrast layer for mixed photos/videos
+   ========================================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        rgba(8, 12, 16, 0.78) 0%,
+        rgba(8, 12, 16, 0.68) 28%,
+        rgba(8, 12, 16, 0.38) 48%,
+        rgba(8, 12, 16, 0.08) 67%,
+        rgba(8, 12, 16, 0) 78%
+    );
+}
+
+.hero__slides {
+    z-index: 1;
+}
+
+.hero__inner {
+    position: relative;
+    z-index: 3;
+}
+
+.hero__dots {
+    z-index: 4;
+}
+
+.hero__title {
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.55),
+        0 6px 18px rgba(0, 0, 0, 0.30);
+}
+
+.hero__lede {
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.75),
+        0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.hero__eyebrow {
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 700px) {
+
+    .hero::before {
+        background: linear-gradient(
+            90deg,
+            rgba(8, 12, 16, 0.82) 0%,
+            rgba(8, 12, 16, 0.68) 58%,
+            rgba(8, 12, 16, 0.24) 100%
+        );
+    }
+}
+
+
+
+
