@@ -157,7 +157,7 @@
 
 /* Flashing Sale navigation tab */
 
-.nav--primary a[href*="/sale"] {
+.nav--primary .truck-sales-link > a {
         display: inline-flex;
         align-items: center;
         padding: 0.4rem 0.75rem;
@@ -170,9 +170,9 @@
         animation: sale-flash 1.2s steps(2, end) infinite;
 }
 
-.nav--primary a[href*="/sale"]:hover,
-.nav--primary a[href*="/sale"]:focus-visible,
-.nav--primary .current-menu-item > a[href*="/sale"] {
+.nav--primary .truck-sales-link > a:hover,
+.nav--primary .truck-sales-link > a:focus-visible,
+.nav--primary .current-menu-item > .truck-sales-link > a {
         color: #111111;
         background: #ffd400;
         animation-play-state: paused;
@@ -195,7 +195,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-        .nav--primary a[href*="/sale"] {
+        .nav--primary .truck-sales-link > a {
                 animation: none;
         }
 }
@@ -1065,3 +1065,160 @@ cat >> assets/css/layout.css <<'EOF'
 }
 
 
+
+
+/* ==========================================================
+   SERVICES PAGE — PHOTO FEATURES
+   ========================================================== */
+
+.service-photo-feature {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: clamp(48px, 7vw, 96px);
+        align-items: center;
+}
+
+.service-photo-feature__media {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #dfe4e8;
+        border: 1px solid rgba(11, 37, 55, 0.10);
+        box-shadow:
+                0 14px 30px rgba(9, 30, 45, 0.10),
+                0 4px 12px rgba(9, 30, 45, 0.06);
+        transition:
+                transform 220ms ease,
+                box-shadow 220ms ease;
+}
+
+.service-photo-feature__media::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 12px;
+        pointer-events: none;
+        z-index: 2;
+}
+
+.service-photo-feature__media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.04) 28%,
+                rgba(255, 255, 255, 0) 55%
+        );
+        pointer-events: none;
+        z-index: 1;
+}
+
+.service-photo-feature__media img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 320ms ease;
+}
+
+.service-photo-feature__media:hover {
+        transform: translateY(-4px);
+        box-shadow:
+                0 22px 48px rgba(9, 30, 45, 0.16),
+                0 8px 18px rgba(9, 30, 45, 0.08);
+}
+
+.service-photo-feature__media:hover img {
+        transform: scale(1.03);
+}
+
+.service-photo-feature__body {
+        min-width: 0;
+}
+
+.service-photo-feature__body h2 {
+        margin-top: 8px;
+        margin-bottom: 18px;
+}
+
+.service-photo-feature__body > p:not(.service-section__eyebrow):not(.service-systems__label) {
+        max-width: 620px;
+}
+
+/* Alternate image/text placement on desktop */
+.service-photo-feature--reverse .service-photo-feature__media {
+        grid-column: 2;
+        grid-row: 1;
+}
+
+.service-photo-feature--reverse .service-photo-feature__body {
+        grid-column: 1;
+        grid-row: 1;
+}
+
+/* CVIP list sits naturally below the inspection description */
+.service-photo-feature .cvip-classes {
+        margin-top: 30px;
+}
+
+/* Keep the truck systems compact inside the new layout */
+.service-photo-feature .service-systems {
+        margin-top: 10px;
+}
+
+/* Tablet / mobile */
+@media (max-width: 820px) {
+
+        .service-photo-feature,
+        .service-photo-feature--reverse {
+                grid-template-columns: 1fr;
+                gap: 30px;
+        }
+
+        .service-photo-feature--reverse .service-photo-feature__media,
+        .service-photo-feature--reverse .service-photo-feature__body {
+                grid-column: 1;
+        }
+
+        .service-photo-feature--reverse .service-photo-feature__media {
+                grid-row: 1;
+        }
+
+        .service-photo-feature--reverse .service-photo-feature__body {
+                grid-row: 2;
+        }
+
+        .service-photo-feature__media img {
+                aspect-ratio: 16 / 10;
+        }
+}
+
+@media (max-width: 520px) {
+
+        .service-photo-feature {
+                gap: 24px;
+        }
+
+        .service-photo-feature__media {
+                margin-inline: -4px;
+        }
+
+        .service-photo-feature__media img {
+                aspect-ratio: 4 / 3;
+        }
+}
+
+@media (prefers-reduced-motion: reduce) {
+        .service-photo-feature__media img {
+                transition: none;
+        }
+
+        .service-photo-feature__media:hover img {
+                transform: none;
+        }
+}

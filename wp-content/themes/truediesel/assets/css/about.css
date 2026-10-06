@@ -13,7 +13,7 @@
 			rgba(12, 18, 24, 0.78) 45%,
 			rgba(12, 18, 24, 0.42) 100%
 		),
-		url("../images/about-truck.jpg") center 58% / cover no-repeat;
+		url("../images/about/about_us_cover.png") center 58% / cover no-repeat;
 	color: var(--td-text-inverse);
 }
 
@@ -474,4 +474,1855 @@
 	.about-value {
 		padding: var(--td-sp-5);
 	}
+}
+
+
+/* ==========================================================
+   ABOUT HERO — SPLIT EDITORIAL DESIGN
+   Inspired by supplied layout reference
+   ========================================================== */
+
+.about-hero--split {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 58%) minmax(0, 42%);
+        min-height: 610px;
+        overflow: hidden;
+        background: #0b2233;
+}
+
+
+/* ==========================================================
+   PHOTO SIDE
+   ========================================================== */
+
+.about-hero__visual {
+        position: relative;
+        min-width: 0;
+        overflow: hidden;
+
+        border-bottom-right-radius: 90px;
+
+        background: #102b3e;
+}
+
+.about-hero__visual img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        min-height: 610px;
+
+        object-fit: cover;
+        object-position: 58% center;
+}
+
+
+/* subtle dark edge where photo meets text */
+.about-hero__visual::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background:
+                linear-gradient(
+                        90deg,
+                        rgba(4, 17, 28, 0.05) 0%,
+                        rgba(4, 17, 28, 0.02) 65%,
+                        rgba(4, 17, 28, 0.25) 100%
+                );
+
+        pointer-events: none;
+}
+
+
+/* small orange vertical detail */
+.about-hero__photo-accent {
+        position: absolute;
+
+        left: 0;
+        top: 42%;
+
+        width: 10px;
+        height: 110px;
+
+        background: #f58220;
+
+        border-radius: 0 10px 10px 0;
+
+        z-index: 2;
+}
+
+
+/* ==========================================================
+   RIGHT PANEL
+   ========================================================== */
+
+.about-hero__panel {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+
+        min-width: 0;
+
+        color: #ffffff;
+        background: #0b2233;
+}
+
+
+/* title area */
+.about-hero__heading {
+        position: relative;
+
+        padding:
+                64px
+                clamp(42px, 5vw, 82px)
+                48px;
+
+        background:
+                linear-gradient(
+                        135deg,
+                        #123d59 0%,
+                        #0d3048 100%
+                );
+
+        border-bottom: 5px solid #f58220;
+}
+
+
+/* orange bar above title */
+.about-hero__heading::before {
+        content: "";
+
+        display: block;
+
+        width: 58px;
+        height: 5px;
+
+        margin-bottom: 24px;
+
+        background: #f58220;
+}
+
+
+.about-hero .about-eyebrow {
+        margin: 0 0 18px;
+
+        color: #f58220;
+
+        font-size: 0.78rem;
+        font-weight: 800;
+
+        line-height: 1.35;
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+}
+
+
+/* hero title */
+.about-hero__title {
+        max-width: 8.5ch;
+
+        margin: 0;
+
+        color: #ffffff;
+
+        font-size: clamp(3.1rem, 4.1vw, 5rem);
+        font-weight: 800;
+
+        line-height: 0.96;
+        letter-spacing: -0.035em;
+
+        text-wrap: balance;
+}
+
+
+/* ==========================================================
+   LOWER COPY AREA
+   ========================================================== */
+
+.about-hero__copy {
+        position: relative;
+
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        padding:
+                64px
+                clamp(42px, 5vw, 82px);
+
+        background: #0b2233;
+}
+
+
+.about-hero__lede {
+        max-width: 510px;
+
+        margin: 0;
+
+        color: rgba(255, 255, 255, 0.84);
+
+        font-size: clamp(1rem, 1.15vw, 1.17rem);
+        line-height: 1.75;
+}
+
+
+/* decorative square pattern similar to reference */
+.about-hero__mark {
+        display: grid;
+
+        grid-template-columns: repeat(3, 7px);
+        grid-auto-rows: 7px;
+
+        gap: 7px;
+
+        width: max-content;
+
+        margin-left: auto;
+        margin-bottom: 34px;
+}
+
+.about-hero__mark span {
+        display: block;
+
+        width: 7px;
+        height: 7px;
+
+        background: #f58220;
+}
+
+
+/* deliberately offset pattern */
+.about-hero__mark span:nth-child(1) {
+        grid-column: 2;
+}
+
+.about-hero__mark span:nth-child(4) {
+        grid-column: 1;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1050px) {
+
+        .about-hero--split {
+                grid-template-columns: 55% 45%;
+                min-height: 560px;
+        }
+
+        .about-hero__visual img {
+                min-height: 560px;
+        }
+
+        .about-hero__visual {
+                border-bottom-right-radius: 68px;
+        }
+
+        .about-hero__heading {
+                padding:
+                        48px
+                        38px
+                        38px;
+        }
+
+        .about-hero__copy {
+                padding:
+                        48px
+                        38px;
+        }
+
+        .about-hero__title {
+                font-size: clamp(2.7rem, 4.8vw, 4rem);
+        }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 760px) {
+
+        .about-hero--split {
+                display: flex;
+                flex-direction: column;
+
+                min-height: 0;
+        }
+
+
+        /* heading first */
+        .about-hero__panel {
+                display: contents;
+        }
+
+        .about-hero__heading {
+                order: 1;
+
+                padding:
+                        40px
+                        24px
+                        34px;
+        }
+
+
+        .about-hero__heading::before {
+                width: 44px;
+                height: 4px;
+
+                margin-bottom: 18px;
+        }
+
+
+        .about-hero__title {
+                max-width: 10ch;
+
+                font-size: clamp(2.6rem, 12vw, 4rem);
+        }
+
+
+        /* photo second */
+        .about-hero__visual {
+                order: 2;
+
+                height: 390px;
+
+                border-bottom-right-radius: 54px;
+        }
+
+        .about-hero__visual img {
+                width: 100%;
+                height: 100%;
+
+                min-height: 0;
+
+                object-position: 55% center;
+        }
+
+
+        /* copy third */
+        .about-hero__copy {
+                order: 3;
+
+                padding:
+                        42px
+                        24px
+                        48px;
+        }
+
+
+        .about-hero__mark {
+                margin-left: 0;
+                margin-bottom: 24px;
+        }
+
+
+        .about-hero__lede {
+                max-width: 100%;
+
+                font-size: 1rem;
+                line-height: 1.65;
+        }
+
+
+        .about-hero__photo-accent {
+                top: auto;
+                bottom: 42px;
+
+                width: 8px;
+                height: 80px;
+        }
+}
+
+
+/* ==========================================================
+   ABOUT HERO — FINAL SPLIT LAYOUT FIX
+   ========================================================== */
+
+/* Remove old hero spacing/background/borders */
+.about-hero.about-hero--split {
+        display: grid !important;
+        grid-template-columns: 58% 42% !important;
+
+        width: 100%;
+        min-height: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        gap: 0 !important;
+
+        background: #0b2233 !important;
+
+        border: 0 !important;
+        border-top: 0 !important;
+        border-bottom: 0 !important;
+
+        overflow: hidden;
+        align-items: stretch;
+}
+
+
+/* ----------------------------------------------------------
+   LEFT PHOTO
+   ---------------------------------------------------------- */
+
+.about-hero--split .about-hero__visual {
+        position: relative;
+
+        width: 100%;
+        height: 620px;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden;
+
+        background: transparent;
+
+        border: 0 !important;
+        border-radius: 0 0 70px 0;
+}
+
+.about-hero--split .about-hero__visual img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        min-height: 0 !important;
+
+        margin: 0;
+        padding: 0;
+
+        object-fit: cover;
+        object-position: 54% center;
+}
+
+
+/* Very subtle depth only */
+.about-hero--split .about-hero__visual::after {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+
+        background:
+                linear-gradient(
+                        90deg,
+                        rgba(8, 29, 45, 0.04) 0%,
+                        rgba(8, 29, 45, 0.00) 72%,
+                        rgba(8, 29, 45, 0.16) 100%
+                );
+
+        pointer-events: none;
+}
+
+
+/* Remove old orange side tab */
+.about-hero--split .about-hero__photo-accent {
+        display: none;
+}
+
+
+/* ----------------------------------------------------------
+   RIGHT SIDE
+   ---------------------------------------------------------- */
+
+.about-hero--split .about-hero__panel {
+        display: grid;
+
+        grid-template-rows: auto 1fr;
+
+        width: 100%;
+        min-width: 0;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        background: #0b2233;
+
+        border: 0 !important;
+}
+
+
+/* ----------------------------------------------------------
+   HEADING AREA
+   ---------------------------------------------------------- */
+
+.about-hero--split .about-hero__heading {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        min-height: 355px;
+
+        margin: 0;
+        padding: 58px 70px 52px;
+
+        background: #123d59;
+
+        border: 0 !important;
+        border-top: 0 !important;
+        border-bottom: 0 !important;
+}
+
+
+/* small orange accent */
+.about-hero--split .about-hero__heading::before {
+        content: "";
+
+        display: block;
+
+        width: 52px;
+        height: 4px;
+
+        margin: 0 0 24px;
+
+        background: #f58220;
+}
+
+
+.about-hero--split .about-eyebrow {
+        margin: 0 0 20px !important;
+
+        color: #f58220;
+
+        font-size: 0.78rem;
+        font-weight: 800;
+
+        line-height: 1.3;
+        letter-spacing: 0.14em;
+
+        text-transform: uppercase;
+}
+
+
+/* Fix awkward headline wrapping */
+.about-hero--split .about-hero__title {
+        width: 100%;
+        max-width: 560px !important;
+
+        margin: 0 !important;
+
+        color: #ffffff;
+
+        font-size: clamp(3rem, 3.6vw, 4.35rem) !important;
+        line-height: 1.01 !important;
+        letter-spacing: -0.035em;
+
+        text-wrap: balance;
+}
+
+
+/* ----------------------------------------------------------
+   DESCRIPTION AREA
+   ---------------------------------------------------------- */
+
+.about-hero--split .about-hero__copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        min-height: 265px;
+
+        margin: 0;
+        padding: 48px 70px 54px;
+
+        background: #0b2233;
+
+        border: 0 !important;
+}
+
+
+/* compact orange dot pattern */
+.about-hero--split .about-hero__mark {
+        display: grid;
+
+        grid-template-columns: repeat(3, 6px);
+        gap: 6px;
+
+        width: max-content;
+
+        margin: 0 0 28px auto;
+}
+
+.about-hero--split .about-hero__mark span {
+        width: 6px;
+        height: 6px;
+
+        background: #f58220;
+}
+
+
+.about-hero--split .about-hero__lede {
+        max-width: 510px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+
+        color: rgba(255, 255, 255, 0.88);
+
+        font-size: 1.05rem !important;
+        line-height: 1.65 !important;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1050px) {
+
+        .about-hero.about-hero--split {
+                grid-template-columns: 55% 45% !important;
+        }
+
+        .about-hero--split .about-hero__visual {
+                height: 560px;
+                border-radius: 0 0 50px 0;
+        }
+
+        .about-hero--split .about-hero__heading {
+                min-height: 320px;
+
+                padding:
+                        44px
+                        42px;
+        }
+
+        .about-hero--split .about-hero__copy {
+                min-height: 240px;
+
+                padding:
+                        38px
+                        42px
+                        44px;
+        }
+
+        .about-hero--split .about-hero__title {
+                font-size: clamp(2.6rem, 4.8vw, 3.8rem) !important;
+        }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 760px) {
+
+        .about-hero.about-hero--split {
+                display: flex !important;
+                flex-direction: column;
+
+                background: #0b2233 !important;
+        }
+
+        .about-hero--split .about-hero__panel {
+                display: contents;
+        }
+
+        .about-hero--split .about-hero__heading {
+                order: 1;
+
+                min-height: 0;
+
+                padding:
+                        38px
+                        24px
+                        36px;
+        }
+
+        .about-hero--split .about-hero__visual {
+                order: 2;
+
+                height: 390px;
+
+                border-radius: 0 0 42px 0;
+        }
+
+        .about-hero--split .about-hero__visual img {
+                object-position: 51% center;
+        }
+
+        .about-hero--split .about-hero__copy {
+                order: 3;
+
+                min-height: 0;
+
+                padding:
+                        38px
+                        24px
+                        44px;
+        }
+
+        .about-hero--split .about-hero__heading::before {
+                width: 44px;
+
+                margin-bottom: 18px;
+        }
+
+        .about-hero--split .about-eyebrow {
+                margin-bottom: 15px !important;
+
+                font-size: 0.7rem;
+        }
+
+        .about-hero--split .about-hero__title {
+                max-width: 500px !important;
+
+                font-size: clamp(2.6rem, 11vw, 3.8rem) !important;
+        }
+
+        .about-hero--split .about-hero__mark {
+                margin-left: 0;
+                margin-bottom: 22px;
+        }
+}
+
+
+/* ==========================================================
+   ABOUT PAGE — PHOTO-LED BODY REDESIGN
+   ========================================================== */
+
+.about-story--visual {
+        background: #ffffff;
+        padding-block: clamp(78px, 8vw, 125px);
+}
+
+.about-story-feature {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: clamp(60px, 8vw, 120px);
+        align-items: center;
+}
+
+
+/* Main story photo */
+
+.about-story-feature__media {
+        position: relative;
+        margin: 0;
+}
+
+.about-story-feature__media > img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        object-position: center;
+
+        border-radius: 4px 56px 4px 4px;
+
+        box-shadow:
+                0 22px 55px rgba(10, 35, 53, 0.12);
+}
+
+
+/* orange / navy experience badge */
+
+.about-story-feature__badge {
+        position: absolute;
+        right: -24px;
+        bottom: -30px;
+
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        padding: 20px 24px;
+
+        color: #ffffff;
+        background: #0b2233;
+
+        border-left: 5px solid #f58220;
+
+        box-shadow:
+                0 14px 32px rgba(5, 25, 40, 0.18);
+}
+
+.about-story-feature__badge strong {
+        color: #f58220;
+
+        font-size: 2rem;
+        line-height: 1;
+}
+
+.about-story-feature__badge span {
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1.35;
+        letter-spacing: 0.035em;
+}
+
+
+/* Story content */
+
+.about-story-feature__content {
+        max-width: 680px;
+}
+
+.about-story-feature__content .about-eyebrow,
+.about-section-heading .about-eyebrow,
+.about-work__intro .about-eyebrow {
+        margin: 0 0 17px;
+
+        color: #0877c9;
+
+        font-size: 0.83rem;
+        font-weight: 800;
+
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+}
+
+.about-story-feature__content .about-eyebrow::before,
+.about-section-heading .about-eyebrow::before,
+.about-work__intro .about-eyebrow::before {
+        content: "";
+
+        display: block;
+
+        width: 42px;
+        height: 3px;
+
+        margin-bottom: 16px;
+
+        background: #0877c9;
+}
+
+.about-story-feature__content h2,
+.about-section-heading h2,
+.about-work__intro h2 {
+        margin: 0;
+
+        color: #131d26;
+
+        font-size: clamp(2.35rem, 3.4vw, 4rem);
+        line-height: 1.03;
+        letter-spacing: -0.025em;
+}
+
+.about-story-feature__copy {
+        margin-top: 35px;
+
+        color: #344454;
+
+        font-size: 1.04rem;
+        line-height: 1.75;
+}
+
+.about-story-feature__copy p {
+        margin: 0 0 20px;
+}
+
+.about-story-feature__copy p:last-child {
+        margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   INSIDE TRUE DIESEL
+   ========================================================== */
+
+.about-inside {
+        padding-block: clamp(82px, 8vw, 125px);
+
+        background: #f3f6f8;
+}
+
+.about-section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.7fr);
+
+        gap: 60px;
+        align-items: end;
+
+        margin-bottom: 48px;
+}
+
+.about-section-heading > p {
+        max-width: 550px;
+
+        margin: 0 0 4px;
+
+        color: #50606c;
+
+        font-size: 1rem;
+        line-height: 1.7;
+}
+
+
+/* Mosaic */
+
+.about-photo-mosaic {
+        display: grid;
+
+        grid-template-columns:
+                minmax(0, 1.45fr)
+                minmax(0, 0.85fr);
+
+        grid-template-rows: repeat(2, 245px);
+
+        gap: 18px;
+}
+
+.about-photo {
+        position: relative;
+
+        margin: 0;
+
+        overflow: hidden;
+
+        background: #d9e0e5;
+}
+
+.about-photo--large {
+        grid-row: 1 / 3;
+
+        border-radius: 4px 52px 4px 4px;
+}
+
+.about-photo:not(.about-photo--large) {
+        border-radius: 4px;
+}
+
+.about-photo img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        transition: transform 500ms ease;
+}
+
+.about-photo:hover img {
+        transform: scale(1.025);
+}
+
+
+/* ==========================================================
+   HEAVY DUTY EXPERIENCE
+   ========================================================== */
+
+.about-work {
+        padding-block: clamp(82px, 8vw, 130px);
+
+        background: #ffffff;
+}
+
+.about-work__layout {
+        display: grid;
+
+        grid-template-columns:
+                minmax(300px, 0.72fr)
+                minmax(0, 1.28fr);
+
+        gap: clamp(55px, 8vw, 120px);
+        align-items: center;
+
+        margin-bottom: 54px;
+}
+
+.about-work__intro {
+        max-width: 520px;
+}
+
+.about-work__intro p:last-child {
+        margin: 28px 0 0;
+
+        color: #465866;
+
+        font-size: 1rem;
+        line-height: 1.75;
+}
+
+.about-work__feature {
+        overflow: hidden;
+
+        border-radius: 52px 4px 4px 4px;
+
+        box-shadow:
+                0 22px 55px rgba(10, 35, 53, 0.10);
+}
+
+.about-work__feature img {
+        display: block;
+
+        width: 100%;
+        aspect-ratio: 16 / 9;
+
+        object-fit: cover;
+        object-position: center;
+}
+
+
+/* four-photo strip */
+
+.about-work-strip {
+        display: grid;
+
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+
+        gap: 14px;
+}
+
+.about-work-strip figure {
+        margin: 0;
+
+        overflow: hidden;
+
+        background: #e4e9ed;
+}
+
+.about-work-strip figure:first-child {
+        border-radius: 26px 4px 4px 4px;
+}
+
+.about-work-strip figure:last-child {
+        border-radius: 4px 4px 26px 4px;
+}
+
+.about-work-strip img {
+        display: block;
+
+        width: 100%;
+        aspect-ratio: 4 / 3;
+
+        object-fit: cover;
+
+        transition: transform 400ms ease;
+}
+
+.about-work-strip figure:hover img {
+        transform: scale(1.03);
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+        .about-story-feature,
+        .about-work__layout {
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+        }
+
+        .about-story-feature__content,
+        .about-work__intro {
+                max-width: none;
+        }
+
+        .about-story-feature__badge {
+                right: 18px;
+        }
+
+        .about-section-heading {
+                grid-template-columns: 1fr;
+
+                gap: 22px;
+        }
+
+        .about-photo-mosaic {
+                grid-template-rows:
+                        340px
+                        220px;
+        }
+
+        .about-work-strip {
+                grid-template-columns: repeat(2, 1fr);
+        }
+}
+
+
+@media (max-width: 600px) {
+
+        .about-story--visual,
+        .about-inside,
+        .about-work {
+                padding-block: 64px;
+        }
+
+        .about-story-feature {
+                gap: 62px;
+        }
+
+        .about-story-feature__media > img {
+                border-radius: 3px 34px 3px 3px;
+        }
+
+        .about-story-feature__badge {
+                right: 12px;
+                bottom: -32px;
+
+                padding: 16px 18px;
+        }
+
+        .about-story-feature__content h2,
+        .about-section-heading h2,
+        .about-work__intro h2 {
+                font-size: clamp(2.15rem, 10vw, 3.15rem);
+        }
+
+        .about-photo-mosaic {
+                display: grid;
+
+                grid-template-columns: 1fr;
+                grid-template-rows: none;
+
+                gap: 12px;
+        }
+
+        .about-photo--large {
+                grid-row: auto;
+
+                border-radius: 3px 32px 3px 3px;
+        }
+
+        .about-photo {
+                height: 260px;
+        }
+
+        .about-work__feature {
+                border-radius: 32px 3px 3px 3px;
+        }
+
+        .about-work-strip {
+                gap: 8px;
+        }
+
+        .about-work-strip figure:first-child,
+        .about-work-strip figure:last-child {
+                border-radius: 3px;
+        }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+        .about-photo img,
+        .about-work-strip img {
+                transition: none;
+        }
+
+        .about-photo:hover img,
+        .about-work-strip figure:hover img {
+                transform: none;
+        }
+}
+
+/* ==========================================================
+   ABOUT VALUES SECTION
+   ========================================================== */
+
+.about-values {
+        padding-block: clamp(72px, 8vw, 110px);
+        background: #f5f7f9;
+}
+
+.about-values__intro {
+        max-width: 760px;
+        margin-bottom: 42px;
+}
+
+.about-values__intro .about-eyebrow {
+        margin: 0 0 18px;
+        color: #0877c9;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+}
+
+.about-values__intro .about-eyebrow::before {
+        content: "";
+        display: block;
+        width: 42px;
+        height: 3px;
+        margin-bottom: 14px;
+        background: #0877c9;
+}
+
+.about-values__intro h2 {
+        margin: 0;
+        max-width: 10ch;
+        color: #131d26;
+        font-size: clamp(2.6rem, 4vw, 4.8rem);
+        line-height: 0.98;
+        letter-spacing: -0.03em;
+}
+
+.about-values__grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+}
+
+.about-value-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: 270px;
+        padding: 30px 30px 28px;
+        background: #ffffff;
+        border: 1px solid rgba(16, 36, 52, 0.12);
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(10, 35, 53, 0.05);
+}
+
+.about-value-card__number {
+        display: inline-block;
+        margin-bottom: 26px;
+        color: #0877c9;
+        font-size: 1.9rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.03em;
+}
+
+.about-value-card h3 {
+        margin: 0 0 16px;
+        color: #131d26;
+        font-size: 1.1rem;
+        line-height: 1.2;
+}
+
+.about-value-card p {
+        margin: 0;
+        color: #4b5d6a;
+        font-size: 1rem;
+        line-height: 1.7;
+}
+
+@media (max-width: 1100px) {
+        .about-values__grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+}
+
+@media (max-width: 680px) {
+        .about-values {
+                padding-block: 64px;
+        }
+
+        .about-values__intro {
+                margin-bottom: 30px;
+        }
+
+        .about-values__intro h2 {
+                max-width: 100%;
+                font-size: clamp(2.3rem, 10vw, 3.4rem);
+        }
+
+        .about-values__grid {
+                grid-template-columns: 1fr;
+        }
+
+        .about-value-card {
+                min-height: 0;
+                padding: 24px 22px;
+                border-radius: 14px;
+        }
+
+        .about-value-card__number {
+                margin-bottom: 18px;
+                font-size: 1.6rem;
+        }
+}
+
+/* ==========================================================
+   INSIDE TRUE DIESEL — HEADING FIX
+   ========================================================== */
+
+.about-inside .about-section-heading {
+        display: block;
+        max-width: 760px;
+        margin-bottom: 44px;
+}
+
+.about-inside .about-section-heading > div {
+        max-width: 700px;
+}
+
+.about-inside .about-section-heading .about-eyebrow {
+        margin-bottom: 16px;
+}
+
+.about-inside .about-section-heading h2 {
+        max-width: 620px;
+        margin: 0;
+
+        font-size: clamp(2.6rem, 3.6vw, 4.2rem);
+        line-height: 1;
+        letter-spacing: -0.03em;
+}
+
+.about-inside .about-section-heading > p {
+        max-width: 570px;
+
+        margin: 22px 0 0;
+
+        color: #50606c;
+
+        font-size: 1.05rem;
+        line-height: 1.7;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+        .about-inside .about-section-heading {
+                margin-bottom: 32px;
+        }
+
+        .about-inside .about-section-heading h2 {
+                max-width: 100%;
+                font-size: clamp(2.3rem, 10vw, 3.3rem);
+        }
+
+        .about-inside .about-section-heading > p {
+                margin-top: 18px;
+                font-size: 1rem;
+        }
+}
+
+
+/* ==========================================================
+   ABOUT PAGE — VALUES LAYOUT CORRECTION
+   ========================================================== */
+
+.about-values {
+        width: 100%;
+        padding: 90px 0 100px !important;
+        background: #f4f6f8;
+}
+
+.about-values > .wrap {
+        width: min(1180px, calc(100% - 48px)) !important;
+        max-width: 1180px !important;
+        margin-inline: auto !important;
+}
+
+
+/* Heading area */
+
+.about-values__intro {
+        display: grid !important;
+        grid-template-columns: 0.75fr 1.25fr;
+        align-items: end;
+        gap: 70px;
+
+        width: 100% !important;
+        max-width: none !important;
+
+        margin: 0 0 48px !important;
+}
+
+.about-values__intro .about-eyebrow {
+        margin: 0 !important;
+
+        color: #0877c9;
+
+        font-size: 0.8rem;
+        font-weight: 800;
+        line-height: 1.3;
+
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+}
+
+.about-values__intro .about-eyebrow::before {
+        content: "";
+
+        display: block;
+
+        width: 42px;
+        height: 3px;
+
+        margin-bottom: 17px;
+
+        background: #0877c9;
+}
+
+.about-values__intro h2 {
+        width: 100%;
+        max-width: 620px !important;
+
+        margin: 0 !important;
+
+        color: #131d26;
+
+        font-size: clamp(2.7rem, 4vw, 4.2rem) !important;
+        line-height: 1 !important;
+        letter-spacing: -0.03em;
+}
+
+
+/* Four cards */
+
+.about-values__grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+
+        width: 100% !important;
+
+        gap: 18px !important;
+}
+
+.about-value-card {
+        position: relative;
+
+        min-width: 0;
+        min-height: 280px !important;
+
+        padding: 30px 28px !important;
+
+        background: #ffffff;
+
+        border: 1px solid rgba(15, 45, 65, 0.13) !important;
+        border-radius: 12px !important;
+
+        box-shadow:
+                0 8px 24px rgba(11, 37, 55, 0.06) !important;
+}
+
+.about-value-card__number {
+        display: block;
+
+        margin: 0 0 32px !important;
+
+        color: #0877c9;
+
+        font-size: 1.15rem !important;
+        font-weight: 800;
+        line-height: 1;
+}
+
+.about-value-card h3 {
+        margin: 0 0 14px !important;
+
+        color: #131d26;
+
+        font-size: 1.35rem !important;
+        line-height: 1.15 !important;
+}
+
+.about-value-card p {
+        margin: 0 !important;
+
+        color: #53626d;
+
+        font-size: 0.98rem !important;
+        line-height: 1.65 !important;
+}
+
+
+/* Tablet */
+
+@media (max-width: 950px) {
+
+        .about-values__intro {
+                grid-template-columns: 1fr;
+                gap: 20px;
+        }
+
+        .about-values__grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+        .about-values {
+                padding: 65px 0 70px !important;
+        }
+
+        .about-values > .wrap {
+                width: min(100% - 32px, 1180px) !important;
+        }
+
+        .about-values__intro {
+                margin-bottom: 32px !important;
+        }
+
+        .about-values__intro h2 {
+                font-size: clamp(2.3rem, 10vw, 3.2rem) !important;
+        }
+
+        .about-values__grid {
+                grid-template-columns: 1fr !important;
+        }
+
+        .about-value-card {
+                min-height: 0 !important;
+        }
+}
+
+/* ==========================================================
+   ABOUT — SECTION HEADING CONSISTENCY
+   ========================================================== */
+
+/* Keep normal section eyebrow labels consistent */
+.about-eyebrow {
+        color: #0877c9 !important;
+}
+
+/* Hero eyebrow stays orange */
+.about-hero .about-eyebrow {
+        color: #f58220 !important;
+}
+
+
+/* WHAT WE STAND FOR — keep title with its eyebrow */
+.about-values__intro {
+        display: block !important;
+
+        width: 100% !important;
+        max-width: 700px !important;
+
+        margin: 0 0 42px !important;
+}
+
+.about-values__intro .about-eyebrow {
+        margin: 0 0 16px !important;
+}
+
+.about-values__intro h2 {
+        width: 100% !important;
+        max-width: 520px !important;
+
+        margin: 0 !important;
+
+        font-size: clamp(2.6rem, 3.7vw, 4.1rem) !important;
+        line-height: 1 !important;
+        letter-spacing: -0.03em;
+}
+
+
+/* Keep section eyebrow styling consistent */
+.about-values__intro .about-eyebrow,
+.about-work__intro .about-eyebrow,
+.about-section-heading .about-eyebrow {
+        color: #0877c9 !important;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+        .about-values__intro {
+                margin-bottom: 30px !important;
+        }
+
+        .about-values__intro h2 {
+                max-width: 100% !important;
+                font-size: clamp(2.3rem, 10vw, 3.3rem) !important;
+        }
+}
+
+
+/* ==========================================================
+   OUR STORY — COPY PANEL
+   ========================================================== */
+
+.about-story-feature__copy {
+        margin-top: 30px;
+        padding: 28px 32px;
+
+        background: #f4f8fb;
+        border: 1px solid rgba(8, 119, 201, 0.10);
+        border-radius: 14px;
+
+        box-shadow:
+                0 8px 22px rgba(11, 34, 51, 0.04);
+}
+
+.about-story-feature__copy p {
+        margin: 0 0 18px;
+
+        color: #3f5060;
+
+        font-size: 1rem;
+        line-height: 1.78;
+
+        text-align: justify;
+        text-justify: inter-word;
+}
+
+.about-story-feature__copy p:last-child {
+        margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+
+        .about-story-feature__copy {
+                padding: 22px 20px;
+                border-radius: 12px;
+        }
+
+        .about-story-feature__copy p {
+                text-align: left;
+        }
+}
+
+
+/* ==========================================================
+   OUR STORY — REDESIGN (NO LIGHT BOX)
+   ========================================================== */
+
+.about-story--visual {
+        background: #ffffff;
+        padding-block: clamp(82px, 8vw, 125px);
+}
+
+.about-story-feature {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: clamp(44px, 6vw, 88px);
+        align-items: start;
+}
+
+
+/* Bigger image side */
+.about-story-feature__media {
+        position: relative;
+        margin: 0;
+}
+
+.about-story-feature__media > img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 5 / 4;
+        object-fit: cover;
+        object-position: center;
+
+        border-radius: 6px 44px 6px 6px;
+
+        box-shadow:
+                0 18px 42px rgba(10, 35, 53, 0.10);
+}
+
+
+/* subtle background plate behind image for design depth */
+.about-story-feature__media::before {
+        content: "";
+        position: absolute;
+        left: -18px;
+        bottom: -18px;
+        width: 82%;
+        height: 82%;
+        background: #f3f6f8;
+        border-radius: 6px 34px 6px 6px;
+        z-index: -1;
+}
+
+
+/* keep the badge but make it cleaner */
+.about-story-feature__badge {
+        position: absolute;
+        right: -18px;
+        bottom: 24px;
+
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        padding: 16px 20px;
+
+        color: #ffffff;
+        background: #0b2233;
+
+        border-left: 4px solid #f58220;
+
+        box-shadow:
+                0 12px 26px rgba(10, 35, 53, 0.18);
+}
+
+.about-story-feature__badge strong {
+        color: #f58220;
+        font-size: 1.9rem;
+        line-height: 1;
+}
+
+.about-story-feature__badge span {
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1.35;
+}
+
+
+/* Right text side */
+.about-story-feature__content {
+        max-width: 100%;
+}
+
+.about-story-feature__content .about-eyebrow {
+        margin: 0 0 16px;
+        color: #0877c9;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+}
+
+.about-story-feature__content .about-eyebrow::before {
+        content: "";
+        display: block;
+        width: 42px;
+        height: 3px;
+        margin-bottom: 14px;
+        background: #0877c9;
+}
+
+.about-story-feature__content h2 {
+        max-width: 10ch;
+        margin: 0 0 24px;
+
+        color: #131d26;
+
+        font-size: clamp(2.5rem, 3.8vw, 4.6rem);
+        line-height: 0.98;
+        letter-spacing: -0.03em;
+}
+
+
+/* remove the light box and use a structured copy block */
+.about-story-feature__copy {
+        margin-top: 0 !important;
+        padding: 0 !important;
+
+        background: none !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+
+        position: relative;
+        padding-left: 22px !important;
+}
+
+.about-story-feature__copy::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        bottom: 4px;
+        width: 3px;
+        background: linear-gradient(
+                180deg,
+                #0877c9 0%,
+                rgba(8, 119, 201, 0.18) 100%
+        );
+        border-radius: 999px;
+}
+
+.about-story-feature__copy p {
+        margin: 0 0 18px;
+
+        color: #40515f;
+
+        font-size: 1.02rem;
+        line-height: 1.78;
+
+        text-align: left;
+}
+
+.about-story-feature__copy p:last-child {
+        margin-bottom: 0;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 980px) {
+
+        .about-story-feature {
+                grid-template-columns: 1fr;
+                gap: 50px;
+        }
+
+        .about-story-feature__media {
+                max-width: 760px;
+        }
+
+        .about-story-feature__content h2 {
+                max-width: 12ch;
+        }
+
+        .about-story-feature__media::before {
+                left: -12px;
+                bottom: -12px;
+        }
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+
+        .about-story--visual {
+                padding-block: 68px;
+        }
+
+        .about-story-feature {
+                gap: 42px;
+        }
+
+        .about-story-feature__media > img {
+                border-radius: 4px 28px 4px 4px;
+        }
+
+        .about-story-feature__media::before {
+                width: 88%;
+                height: 84%;
+                left: -8px;
+                bottom: -8px;
+                border-radius: 4px 22px 4px 4px;
+        }
+
+        .about-story-feature__badge {
+                right: 10px;
+                bottom: 12px;
+
+                padding: 14px 16px;
+        }
+
+        .about-story-feature__content h2 {
+                max-width: 100%;
+                font-size: clamp(2.2rem, 10vw, 3.4rem);
+        }
+
+        .about-story-feature__copy {
+                padding-left: 16px !important;
+        }
+
+        .about-story-feature__copy p {
+                font-size: 1rem;
+                line-height: 1.7;
+        }
 }
