@@ -35,6 +35,7 @@ require_once TD_DIR . '/inc/enqueue.php';
 require_once TD_DIR . '/inc/cleanup.php';
 require_once TD_DIR . '/inc/services.php';
 require_once TD_DIR . '/inc/template-tags.php';
+require_once TD_DIR . '/inc/nav-polish.php';
 
 /* =========================================================
  * TRUE DIESEL CONTACT FORM

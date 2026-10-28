@@ -1,0 +1,89 @@
+/* True Diesel primary header refinement — menu and logo only. */
+.site-header {
+    background: #f9fbfd;
+    border-bottom: 1px solid #dce5ed;
+    box-shadow: 0 6px 22px rgba(14, 36, 58, .08);
+}
+.site-header__inner.wrap {
+    max-width: 1460px;
+    min-height: 66px;
+    gap: clamp(14px, 2vw, 32px);
+}
+.site-header .custom-logo {
+    max-width: 185px;
+    max-height: 42px;
+}
+.site-header .nav--primary .nav__list {
+    gap: clamp(.65rem, 1.25vw, 1.25rem);
+}
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: .42rem;
+    padding: .8rem 0;
+    font-size: .94rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 180ms ease;
+}
+.site-header .td-nav-icon {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
+    color: #507994;
+    transition: color 180ms ease;
+}
+/* Use ::before, not ::after: Services already uses ::after for its dropdown arrow. */
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    height: 2px;
+    border-radius: 2px;
+    background: #187fd1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+}
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a:hover,
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a:focus-visible,
+.site-header .nav--primary .nav__list > li.current-menu-item:not(.truck-sales-link) > a,
+.site-header .nav--primary .nav__list > li.current-menu-ancestor:not(.truck-sales-link) > a {
+    color: #116eaf;
+}
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a:hover .td-nav-icon,
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a:focus-visible .td-nav-icon,
+.site-header .nav--primary .nav__list > li.current-menu-item > a .td-nav-icon,
+.site-header .nav--primary .nav__list > li.current-menu-ancestor > a .td-nav-icon {
+    color: #187fd1;
+}
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a:hover::before,
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a:focus-visible::before,
+.site-header .nav--primary .nav__list > li.current-menu-item:not(.truck-sales-link) > a::before,
+.site-header .nav--primary .nav__list > li.current-menu-ancestor:not(.truck-sales-link) > a::before {
+    transform: scaleX(1);
+}
+.site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a:focus-visible {
+    outline: 2px solid #187fd1;
+    outline-offset: 4px;
+}
+/* Keep the original Services dropdown and TRUCK SALES flashing treatment. */
+@media (min-width: 48em) and (max-width: 1100px) {
+    .site-header .td-nav-icon { display: none; }
+    .site-header .nav--primary .nav__list { gap: .65rem; }
+    .site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a { font-size: .85rem; }
+}
+@media (max-width: 47.99em) {
+    .site-header__inner.wrap { min-height: 62px; }
+    .site-header .site-header__nav { background: #f9fbfd; }
+    .site-header .nav--primary .nav__list { gap: .15rem; }
+    .site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a { padding: .65rem 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .site-header .nav--primary .nav__list > li:not(.truck-sales-link) > a::before,
+    .site-header .td-nav-icon { transition: none; }
+}

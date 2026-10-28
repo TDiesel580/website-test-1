@@ -21,6 +21,7 @@ get_header();
 <?php get_template_part( 'template-parts/truck-explorer' ); ?>
 
 <?php get_template_part( 'template-parts/home-services' ); ?>
+<?php get_template_part( 'template-parts/home-technology' ); ?>
 
 <?php get_template_part( 'template-parts/home-trust' ); ?>
 
